@@ -3,7 +3,7 @@
 from models import mongoOP
 import pymongo
 
-dbuser = mongoOP.OpMongoDB('forestbd', 'users')
+dbuser = mongoOP.OpMongoDB('world-cup-20018', 'users')
 
 # dbuser.collection.create_index([("email", pymongo.ASCENDING)], unique=True)
 
@@ -19,10 +19,8 @@ def patchUser(id, dados):
 def deleteUser(id):
     return dbuser.remove(id)
 
-
 def listUser():
     return dbuser.list()
-
 
 def getUser(id):
     return dbuser.findById(id)

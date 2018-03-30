@@ -1,6 +1,7 @@
 # WebServices
 
-Perdido? Acesse a [Wiki](https://github.com/MSLacerda/ecomapss-webservice/wiki)
+## Documentation
+See: [DOC](https://github.com/joaowillamy/world-cup-20018/blob/master/docs/EndPoints.md)
 
 ## Requirements
 
@@ -11,8 +12,8 @@ Perdido? Acesse a [Wiki](https://github.com/MSLacerda/ecomapss-webservice/wiki)
 Clone repository and install depedencies.
 
 ```sh
-$ git clone https://github.com/MSLacerda/BackEco
-$ cd BackEco
+$ git clone https://github.com/joaowillamy/world-cup-20018.git
+$ cd world-cup-20018
 $ pip install pip install -r requirements.txt
 ```
 ### Running
@@ -26,8 +27,8 @@ Commit should be maked in **dev** branch, and must be created a **pull request**
 
 ### Repositories
 
-* [Back End](https://github.com/MSLacerda/BackEco)
-* [Dashboard](https://github.com/MSLacerda/FrontEco)
+* [Back End](#)
+* [Front End](#)
 
 
 
