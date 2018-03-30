@@ -3,7 +3,7 @@
 from routes import routers 
 import os
 
-application = routers.application
+application = routers.application;
 
 
 if __name__ == "__main__":
