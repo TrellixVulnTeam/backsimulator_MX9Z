@@ -34,6 +34,10 @@ CORS(application)
 # Rota index para teste
 
 
+@application.route("/", methods=['GET'])
+def ctrlRoot():
+    return "world cup 2018"
+
 """
 ----------------------------------------------------
                     USER
