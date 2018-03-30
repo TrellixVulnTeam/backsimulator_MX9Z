@@ -20,6 +20,7 @@ $ sudo pip install -r requirements.txt
 ```sh
 $ python wsgi.py
 ```
+### The server will be running at `http://localhost:5000`
 
 ### Commits
 
