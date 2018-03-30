@@ -1,3 +1,4 @@
+setuptools
 Flask==0.12.2
 itsdangerous==0.24
 pymongo==3.4.0

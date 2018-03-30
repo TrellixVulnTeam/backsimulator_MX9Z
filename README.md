@@ -14,7 +14,7 @@ Clone repository and install depedencies.
 ```sh
 $ git clone https://github.com/joaowillamy/world-cup-20018.git
 $ cd world-cup-20018
-$ pip install pip install -r requirements.txt
+$ sudo pip install -r requirements.txt
 ```
 ### Running
 ```sh
@@ -27,8 +27,8 @@ Commit should be maked in **dev** branch, and must be created a **pull request**
 
 ### Repositories
 
-* [Back End](#)
-* [Front End](#)
+* [Back End](https://github.com/joaowillamy/world-cup-20018)
+* [Front End](https://github.com/joaowillamy/world-cup-20018-front)
 
 
 
