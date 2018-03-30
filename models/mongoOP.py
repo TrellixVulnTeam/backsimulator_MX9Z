@@ -11,8 +11,8 @@ from bson.objectid import ObjectId
 # define e cria conexão e inserção, remoção, atualização e re-
 # cuperação de dados
 class OpMongoDB():
-    client = MongoClient('mongodb://mslacerda:chaos456@ds015915.mlab.com:15915/forestbd')
-    # client = MongoClient('localhost', 27017)
+    
+    client = MongoClient('localhost', 27017)
 
     # Construtor db = banco de dados, collection
     def __init__(self, db, collection):
