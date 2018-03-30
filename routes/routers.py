@@ -36,7 +36,7 @@ CORS(application)
 
 @application.route("/", methods=['GET'])
 def ctrlRoot():
-    return "world cup 2018"
+    return "<h1>world cup 2018</h1> <p>Web Service</p>"
 
 """
 ----------------------------------------------------
