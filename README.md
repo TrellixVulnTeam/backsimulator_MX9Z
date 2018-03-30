@@ -6,6 +6,7 @@ See: [DOC](https://github.com/joaowillamy/world-cup-20018/blob/master/docs/EndPo
 ## Requirements
 
 * [Python 2.7]
+* [MongoDB 3.6]
 
 ### Installation
 
