@@ -96,9 +96,9 @@ def getIdSelecao(idselecao):
         return dumps(res)
 
     elif (request.method == 'PUT'):
-        res = cupgames.uploadTeam(idselecao,request.json)
+        res = cupgames.uploadTeams(idselecao,request.json)
         return dumps(res)
 
-    elif (request.method == 'PATCH'):
-        res = cupgames.patchTeam(idselecao,request.json)
-        return dumps(res)
+    # elif (request.method == 'PATCH'):
+        # res = cupgames.patchTeam(idselecao,request.json)
+        # return dumps(res)

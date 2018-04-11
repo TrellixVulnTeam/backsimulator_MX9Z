@@ -7,13 +7,13 @@ dbteam = mongoOP.OpMongoDB('worldcup2018','selecao')
 # dbuser = mongoOP.OpMongoDB('world-cup-20018', 'users')
 
 
-def createFosseis( dados):
+def createTeam( dados):
     return dbteam.save(dados)
 
-def uploadFosseis(id,dados):
+def uploadTeams(id,dados):
     return dbteam.upload(id, dados)
 
-def deleteFosseis(id):
+def deleteTeam(id):
     return dbteam.remove(id)
 
 def listTeams():
