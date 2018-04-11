@@ -16,7 +16,7 @@ def uploadTeams(id,dados):
 def deleteTeam(id):
     return dbteam.remove(id)
 
-def listTeams():
+def listTeam():
     return dbteam.list()
 
 def getTeam(id):

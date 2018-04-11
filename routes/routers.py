@@ -27,7 +27,7 @@ class ObjectIDConverter(BaseConverter):
 # Importando controller de teste
 from controllers import user
 from controllers import cupgames
-/
+
 import json
 
 # Flask app
@@ -71,7 +71,7 @@ def ctrlSelecao():
         return dumps(request.json)
 
     elif (request.method == 'GET'):
-        res = cupgames.listTeams()
+        res = cupgames.listTeam()
         return dumps(res)
 
 
