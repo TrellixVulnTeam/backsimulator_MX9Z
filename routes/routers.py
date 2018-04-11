@@ -88,7 +88,7 @@ def getIdUser(iduser):
 def getIdSelecao(idselecao):
 
     if (request.method == "GET"):
-        res = user.getTeam(idselecao,request.json)
+        res = cup-games.getTeam(idselecao,request.json)
         return dumps(res)
 
     elif (request.method == 'DELETE'):
