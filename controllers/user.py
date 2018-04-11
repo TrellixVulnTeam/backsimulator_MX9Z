@@ -3,7 +3,7 @@
 from models import mongoOP
 import pymongo
 
-dbuser = mongoOP.OpMongoDB('worldcup2018', 'usuarios')
+dbuser = mongoOP.OpMongoDB('worldcup2018', 'usuario')
 
 # dbuser.collection.create_index([("email", pymongo.ASCENDING)], unique=True)
 
