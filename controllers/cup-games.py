@@ -19,8 +19,8 @@ def deleteFosseis(id):
 def listTeams():
     return bdfosseis.list()
 
-# def listFosseis():
-#     return bdfosseis.list()
+def listFosseis():
+    return bdfosseis.list()
 
 def getFosseis(id):
     return bdfosseis.findById(id)

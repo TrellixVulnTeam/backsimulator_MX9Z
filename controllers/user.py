@@ -4,7 +4,7 @@ from models import mongoOP
 import pymongo
 
 # dbuser = mongoOP.OpMongoDB('world-cup-20018', 'users')
-bdfosseis = mongoOP.OpMongoDB('worldcup2018','usuario')
+dbuser = mongoOP.OpMongoDB('worldcup2018','usuario')
 
 # dbuser.collection.create_index([("email", pymongo.ASCENDING)], unique=True)
 
