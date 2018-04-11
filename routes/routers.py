@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
 
+#usuario -- engsoftware
+#senha -- equipe1
+
+
 # Este modulo carrega todas as funções do flask
 from flask import Flask, request
 from flask_cors import CORS, cross_origin
@@ -48,9 +52,11 @@ def ctrlRoot():
 @application.route("/user", methods=['POST','GET'])
 # Função da rota indextree
 def ctrlUser():
+
     if (request.method == 'POST'):
+
         res = user.createUser(request.json)
-        return dumps(res)
+        return dumps(request.json)
 
     elif (request.method == 'GET'):
         res = user.listUser()
@@ -62,11 +68,11 @@ def ctrlUser():
 def getIdUser(iduser):
 
     if (request.method == "GET"):
-        res = user.getUser(iduser)
+        res = user.getUser(iduser,request.json)
         return dumps(res)
 
     elif (request.method == 'DELETE'):
-        res = user.deleteUser(iduser)
+        res = user.deleteUser(iduser,request.json)
         return dumps(res)
 
     elif (request.method == 'PUT'):
@@ -76,4 +82,3 @@ def getIdUser(iduser):
     elif (request.method == 'PATCH'):
         res = user.patchUser(iduser,request.json)
         return dumps(res)
-

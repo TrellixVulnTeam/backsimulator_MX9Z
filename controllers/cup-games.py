@@ -13,10 +13,13 @@ def uploadFosseis(id,dados):
 
 def deleteFosseis(id):
     return bdfosseis.remove(id)
-    
-def listFosseis():
+
+def listTeams():
     return bdfosseis.list()
-    
+
+# def listFosseis():
+#     return bdfosseis.list()
+
 def getFosseis(id):
     return bdfosseis.findById(id)
 

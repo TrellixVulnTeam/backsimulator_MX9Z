@@ -11,8 +11,10 @@ from bson.objectid import ObjectId
 # define e cria conexão e inserção, remoção, atualização e re-
 # cuperação de dados
 class OpMongoDB():
-    
-    client = MongoClient('localhost', 27017)
+
+    client = MongoClient("mongodb://engsoftware:equipe1@ds135619.mlab.com:35619/worldcup2018")
+    # client = MongoClient('localhost', 27017)
+
 
     # Construtor db = banco de dados, collection
     def __init__(self, db, collection):
@@ -21,7 +23,7 @@ class OpMongoDB():
 
     # Metodo para atualizar ou inserir novos dados
     def save(self, dados):
-        
+
         # Criando variável que armazena a resposta
         response = {}
         # ----------------------------------------
@@ -54,10 +56,10 @@ class OpMongoDB():
             # Resposta do servidor
             #--------------------------
             return response
-            #-------------------------- 
+            #--------------------------
         else:
             # Caso não exista id é feito uma atualização com base
-            # no id recebido e mais uma vez com segurança que os dados 
+            # no id recebido e mais uma vez com segurança que os dados
             # sejam atualizados
             try:
                 print ("tem id")
@@ -176,7 +178,7 @@ class OpMongoDB():
                 "Error": True,
                 "Menssage": "Error no serviço "
             }
-        
+
         return response
 
 
@@ -201,4 +203,3 @@ class OpMongoDB():
             }
 
         return response
-

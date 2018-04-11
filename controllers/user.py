@@ -8,6 +8,7 @@ dbuser = mongoOP.OpMongoDB('world-cup-20018', 'users')
 # dbuser.collection.create_index([("email", pymongo.ASCENDING)], unique=True)
 
 def createUser(dados):
+    print(dados)
     return dbuser.save(dados)
 
 def uploadUser(id, dados):
