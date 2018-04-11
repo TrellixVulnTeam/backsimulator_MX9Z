@@ -3,7 +3,6 @@
 #usuario -- engsoftware
 #senha -- equipe1
 
-
 # Este modulo carrega todas as funções do flask
 from flask import Flask, request
 from flask_cors import CORS, cross_origin
@@ -28,7 +27,7 @@ class ObjectIDConverter(BaseConverter):
 # Importando controller de teste
 from controllers import user
 from controllers import cupgames
-
+/
 import json
 
 # Flask app
@@ -72,7 +71,7 @@ def ctrlSelecao():
         return dumps(request.json)
 
     elif (request.method == 'GET'):
-        res = cupgames.listTeam()
+        res = cupgames.listTeams()
         return dumps(res)
 
 
