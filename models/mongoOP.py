@@ -12,8 +12,8 @@ from bson.objectid import ObjectId
 # cuperação de dados
 class OpMongoDB():
 
-    client = MongoClient("mongodb://engsoftware:equipe1@ds135619.mlab.com:35619/worldcup2018")
-    # client = MongoClient('localhost', 27017)
+    # client = MongoClient("mongodb://engsoftware:equipe1@ds135619.mlab.com:35619/worldcup2018")
+    client = MongoClient('localhost', 27017)
 
 
     # Construtor db = banco de dados, collection
