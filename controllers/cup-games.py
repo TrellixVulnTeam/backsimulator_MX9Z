@@ -3,7 +3,9 @@
 from bson.json_util import dumps
 from models import mongoOP
 
-bdfosseis = mongoOP.OpMongoDB('world-cup-20018','cup-games')
+bdfosseis = mongoOP.OpMongoDB('worldcup2018','usuario')
+# dbuser = mongoOP.OpMongoDB('world-cup-20018', 'users')
+
 
 def createFosseis( dados):
     return bdfosseis.save(dados)
