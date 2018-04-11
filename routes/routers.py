@@ -74,6 +74,19 @@ def ctrlSelecao():
         res = cupgames.listTeam()
         return dumps(res)
 
+@application.route("/partida", methods=['POST','GET'])
+# Função da rota indextree
+def ctrlPartida():
+
+    if (request.method == 'POST'):
+
+        res = cupgames.createMatch(request.json)
+        return dumps(request.json)
+
+    elif (request.method == 'GET'):
+        res = cupgames.listMatch()
+        return dumps(res)
+
 
 
 @application.route('/user/<iduser>',  methods=['GET', 'DELETE', 'PUT', 'PATCH'])
