@@ -27,7 +27,7 @@ class ObjectIDConverter(BaseConverter):
 
 # Importando controller de teste
 from controllers import user
-from controllers import cup-games
+from controllers import cupgames
 
 import json
 
@@ -88,17 +88,17 @@ def getIdUser(iduser):
 def getIdSelecao(idselecao):
 
     if (request.method == "GET"):
-        res = cup-games.getTeam(idselecao,request.json)
+        res = cupgames.getTeam(idselecao,request.json)
         return dumps(res)
 
     elif (request.method == 'DELETE'):
-        res = user.deleteUser(idselecao,request.json)
+        res = cupgames.deleteTeam(idselecao,request.json)
         return dumps(res)
 
     elif (request.method == 'PUT'):
-        res = user.uploadUser(idselecao,request.json)
+        res = cupgames.uploadTeam(idselecao,request.json)
         return dumps(res)
 
     elif (request.method == 'PATCH'):
-        res = user.patchUser(idselecao,request.json)
+        res = cupgames.patchTeam(idselecao,request.json)
         return dumps(res)
