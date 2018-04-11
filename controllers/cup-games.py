@@ -3,27 +3,24 @@
 from bson.json_util import dumps
 from models import mongoOP
 
-bdfosseis = mongoOP.OpMongoDB('worldcup2018','usuario')
+dbteam = mongoOP.OpMongoDB('worldcup2018','selecao')
 # dbuser = mongoOP.OpMongoDB('world-cup-20018', 'users')
 
 
 def createFosseis( dados):
-    return bdfosseis.save(dados)
+    return dbteam.save(dados)
 
 def uploadFosseis(id,dados):
-    return bdfosseis.upload(id, dados)
+    return dbteam.upload(id, dados)
 
 def deleteFosseis(id):
-    return bdfosseis.remove(id)
+    return dbteam.remove(id)
 
 def listTeams():
-    return bdfosseis.list()
+    return dbteam.list()
 
-def listFosseis():
-    return bdfosseis.list()
-
-def getFosseis(id):
-    return bdfosseis.findById(id)
+def getTeam(id):
+    return dbteam.findById(id)
 
 def addLoc(id, dados):
-    return bdfosseis.patch(id, dados)
+    return dbteam.patch(id, dados)
