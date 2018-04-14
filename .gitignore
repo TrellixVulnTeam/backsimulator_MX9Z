@@ -5,4 +5,4 @@
 !.elasticbeanstalk/*.global.yml
 __pycache__
 *.pyc
-*.env
+*env
