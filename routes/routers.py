@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
 
-#usuario -- engsoftware
-#senha -- equipe1
-
 # Este modulo carrega todas as funções do flask
 from flask import Flask, request
 from flask_cors import CORS, cross_origin
