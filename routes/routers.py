@@ -39,7 +39,8 @@ CORS(application)
 
 @application.route("/", methods=['GET'])
 def ctrlRoot():
-    return "<h1>World Cup Simulator 2018</h1> <p>Web Service</p>"
+    return "<h1>World Cup Simulator 2018</h1> <p>Web Service</p><a href="http://world-cup-20018.herokuapp.com/">Link Externo</a>"
+
 
 
 
@@ -55,7 +56,6 @@ def ctrlRoot():
 def ctrlUser():
 
     if (request.method == 'POST'):
-
         res = user.createUser(request.json)
         return dumps(request.json)
 

@@ -2,13 +2,20 @@
 # -*- coding: utf-8 -*-
 from models import mongoOP
 import pymongo
+import cupgames
 
 dbuser = mongoOP.OpMongoDB('worldcup2018', 'usuario')
+
 
 # dbuser.collection.create_index([("email", pymongo.ASCENDING)], unique=True)
 
 def createUser(dados):
     print(dados)
+    team = cupgames.listTeam()
+    matches = cupgames.listMatch()
+
+    for match in matches:
+        print(match)
     return dbuser.save(dados)
 
 def uploadUser(id, dados):
