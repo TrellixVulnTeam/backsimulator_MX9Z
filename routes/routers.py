@@ -39,7 +39,7 @@ CORS(application)
 
 @application.route("/", methods=['GET'])
 def ctrlRoot():
-    return "<h1>World Cup Simulator 2018</h1> <p>Web Service</p><a href="http://world-cup-20018.herokuapp.com/">Link Externo</a>"
+    return "<h1>World Cup Simulator 2018</h1> <p>Web Service</p><a href='http://world-cup-20018.herokuapp.com/'>Link Externo</a>"
 
 
 
