@@ -5,8 +5,6 @@ from models import mongoOP
 
 dbteam = mongoOP.OpMongoDB('worldcup2018','selecao')
 dbMatch = mongoOP.OpMongoDB('worldcup2018','partida')
-# dbuser = mongoOP.OpMongoDB('world-cup-20018', 'users')
-
 
 def createTeam(dados):
     return dbteam.save(dados)
@@ -20,8 +18,9 @@ def deleteTeam(id):
 def listTeam():
     return dbteam.list()
 
-def getTeam(id):
-    return dbteam.findById(id)
+def getTeam(id,dados):
+    return dbteam.findTeam(id)
+    # return dbteam.findById(id)
 
 def addLoc(id, dados):
     return dbteam.patch(id, dados)

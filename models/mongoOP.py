@@ -203,3 +203,29 @@ class OpMongoDB():
             }
 
         return response
+
+
+    def findTeam(self, id):
+        try:
+            print (id)
+            pprint.pprint(self.collection.find_one({"id_selecao": id}))
+
+            res = self.collection.find()
+            for x in res({'id_selecao': id}):
+                print(id)
+                pprint(x)
+            # res = self.collection.find_one({'id_selecao': id})
+            print (res)
+            res["_id"] = str(res['_id'])
+
+            response = {
+                "Error": False,
+                "data": res
+            }
+        except:
+            response = {
+                "Error": True,
+                "Menssage": "Error no serviço "
+            }
+
+        return response
