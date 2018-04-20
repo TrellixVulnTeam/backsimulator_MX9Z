@@ -264,7 +264,7 @@ class OpMongoDB():
 
     def findSimulationByIdUser(self, id):
         try:
-            res = self.collection.find({"id_usuario": id})
+            res = self.collection.find_one({"id_usuario": id})
             res["_id"] = str(res['_id'])
             
             response = {
