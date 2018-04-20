@@ -27,8 +27,10 @@ def addLoc(id, dados):
 
 ########################
 
+# def listMatch():
+#     return dbMatch.list()
 def listMatch():
-    return dbMatch.list()
+    return dbMatch.list2()
 
 def createMatch():
     pass
