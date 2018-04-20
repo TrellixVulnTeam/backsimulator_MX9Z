@@ -6,7 +6,7 @@ import json
 import sys
 from bson.json_util import dumps
 from bson.objectid import ObjectId
-from routes.routers import getIdUser
+from routes import routers
 
 # Classe definida para disponibilizar operações com o mongodb
 # define e cria conexão e inserção, remoção, atualização e re-
@@ -244,7 +244,7 @@ class OpMongoDB():
             for x in data:
                 x['_id'] = str(x['_id'])
                 num = int(x['selecao_a'])
-                x['selecao_a'] = getIdUser(num)
+                x['selecao_a'] = routers.getIdUser(num)
 
             if (data):
                 # print (data)
