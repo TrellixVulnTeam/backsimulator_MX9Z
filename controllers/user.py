@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 from models import mongoOP
 import pymongo
-import cupgames
+from controllers import cupgames
 
 dbuser = mongoOP.OpMongoDB('worldcup2018', 'usuario')
 
