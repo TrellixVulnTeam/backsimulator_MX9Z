@@ -265,10 +265,11 @@ class OpMongoDB():
     def findSimulationByIdUser(self, id):
         try:
             data = self.collection.find({"id_usuario": id})
+            data = [x for x in data]
             for x in data:
                 x['_id'] = str(x['_id'])
 
-                
+
             # res["_id"] = str(res['_id'])
             if (data):
                 # print (data)
