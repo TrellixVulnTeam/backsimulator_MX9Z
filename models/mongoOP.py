@@ -191,7 +191,7 @@ class OpMongoDB():
             data = [x for x in data]
             for x in data:
                 x['_id'] = str(x['_id'])
-                x['selecao_a'] = findTeam(x['selecao_a'])
+                x['selecao_a'] = 1
 
             if (data):
                 # print (data)
