@@ -4,8 +4,6 @@
 
 from flask import Flask, request
 from flask_cors import CORS, cross_origin
-
-from flask import Flask
 from werkzeug.routing import BaseConverter, ValidationError
 from itsdangerous import base64_encode, base64_decode
 from bson.objectid import ObjectId

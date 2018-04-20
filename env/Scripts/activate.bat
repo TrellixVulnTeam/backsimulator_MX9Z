@@ -1,5 +1,5 @@
 @echo off
-set "VIRTUAL_ENV=C:\Users\igor\Documents\DEV\worldcup\world-cup-20018\env"
+set "VIRTUAL_ENV=C:\Users\igor\Documents\DEV\backsimulator\env"
 
 if defined _OLD_VIRTUAL_PROMPT (
     set "PROMPT=%_OLD_VIRTUAL_PROMPT%"
