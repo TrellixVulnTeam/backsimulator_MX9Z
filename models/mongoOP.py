@@ -184,36 +184,6 @@ class OpMongoDB():
 
 
 
-    def list2(self):
-        response = {}
-        try:
-            data = self.collection.find()
-            data = [x for x in data]
-            for x in data:
-                x['_id'] = str(x['_id'])
-                x['selecao_a'] = 1
-
-            if (data):
-                # print (data)
-                response = {
-                    "Error": False,
-                    "Data": data
-                }
-            else:
-                response = {
-                    "Error": True,
-                    "Menssage": "Erro ao acessar serviço"
-                }
-        except Exception as e:
-            print(e)
-            response = {
-                "Error": True,
-                "Menssage": "Error no serviço "
-            }
-
-        return response
-
-
 
 
 
@@ -256,6 +226,38 @@ class OpMongoDB():
                 "data": res
             }
         except:
+            response = {
+                "Error": True,
+                "Menssage": "Error no serviço "
+            }
+
+        return response
+
+
+
+    def list2(self):
+        response = {}
+        try:
+            data = self.collection.find()
+            data = [x for x in data]
+            for x in data:
+                x['_id'] = str(x['_id'])
+                num = int(x['selecao_a'])
+                x['selecao_a'] = findTeam(num)
+
+            if (data):
+                # print (data)
+                response = {
+                    "Error": False,
+                    "Data": data
+                }
+            else:
+                response = {
+                    "Error": True,
+                    "Menssage": "Erro ao acessar serviço"
+                }
+        except Exception as e:
+            print(e)
             response = {
                 "Error": True,
                 "Menssage": "Error no serviço "
