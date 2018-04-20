@@ -264,14 +264,25 @@ class OpMongoDB():
 
     def findSimulationByIdUser(self, id):
         try:
-            res = self.collection.find_one({"id_usuario": id})
-            res["_id"] = str(res['_id'])
-            
-            response = {
-                "Error": False,
-                "data": res
-            }
-        except:
+            data = self.collection.find({"id_usuario": id})
+            for x in data:
+                x['_id'] = str(x['_id'])
+
+                
+            # res["_id"] = str(res['_id'])
+            if (data):
+                # print (data)
+                response = {
+                    "Error": False,
+                    "Data": data
+                }
+            else:
+                response = {
+                    "Error": True,
+                    "Menssage": "Erro ao acessar serviço"
+                }
+        except Exception as e:
+            print(e)
             response = {
                 "Error": True,
                 "Menssage": "Error no serviço "
