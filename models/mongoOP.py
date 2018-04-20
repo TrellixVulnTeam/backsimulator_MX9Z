@@ -211,18 +211,9 @@ class OpMongoDB():
 
     def findTeam(self, id):
         try:
-            # print (id)
-            # pprint.pprint(self.collection.find_one({"id_selecao": int(id)}))
-
             res = self.collection.find_one({"id_selecao": int(id)})
             res["_id"] = str(res['_id'])
-            # for x in res({'id_selecao': id}):
-            #     print(id)
-            #     pprint(x)
-            # res = self.collection.find_one({'id_selecao': id})
-            # print (res)
-            # res["_id"] = str(res['_id'])
-
+            
             response = {
                 "Error": False,
                 "data": res
@@ -237,7 +228,7 @@ class OpMongoDB():
 
 
 
-    def list2(self):
+    def listarSelecoes(self):
         response = {}
         try:
             data = self.collection.find()
@@ -263,6 +254,24 @@ class OpMongoDB():
                 }
         except Exception as e:
             print(e)
+            response = {
+                "Error": True,
+                "Menssage": "Error no serviço "
+            }
+
+        return response
+
+
+    def findSimulationByIdUser(self, id):
+        try:
+            res = self.collection.find({"id_usuario": id})
+            res["_id"] = str(res['_id'])
+            
+            response = {
+                "Error": False,
+                "data": res
+            }
+        except:
             response = {
                 "Error": True,
                 "Menssage": "Error no serviço "

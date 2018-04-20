@@ -136,3 +136,21 @@ def ctrlPartida():
     elif (request.method == 'GET'):
         res = cupgames.listMatch()
         return dumps(res)
+
+
+
+
+@application.route('/simulacao/<iduser>',  methods=['GET', 'DELETE', 'PUT', 'PATCH'])
+def getIdSimulation(iduser):
+
+    if (request.method == "GET"):
+        res = cupgames.getSimulations(iduser,request.json)
+        return dumps(res)
+
+    # elif (request.method == 'DELETE'):
+    #     res = cupgames.deleteTeam(idselecao,request.json)
+    #     return dumps(res)
+
+    # elif (request.method == 'PUT'):
+    #     res = cupgames.uploadTeams(idselecao,request.json)
+    #     return dumps(res)
