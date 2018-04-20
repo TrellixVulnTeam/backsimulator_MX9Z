@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Importa mongocliente para realizar a conexão com bd do mongo criado
 from pymongo import MongoClient
-from flask import jsonify
+from flask import jsonify, request
 import json
 import sys
 from bson.json_util import dumps
@@ -244,7 +244,7 @@ class OpMongoDB():
             for x in data:
                 x['_id'] = str(x['_id'])
                 num = int(x['selecao_a'])
-                x['selecao_a'] = routers.getIdUser(num)
+                x['selecao_a'] = routers.getIdSelecao(num)
 
             if (data):
                 # print (data)
