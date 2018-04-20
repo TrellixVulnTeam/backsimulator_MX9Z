@@ -49,6 +49,15 @@ def ctrlRoot():
 """
 
 
+
+def getIdSelecao2(idselecao):
+
+    if (request.method == "GET"):
+        res = cupgames.getTeam(idselecao,request.json)
+        return res
+
+
+
 @application.route("/user", methods=['POST','GET'])
 # Função da rota indextree
 def ctrlUser():
