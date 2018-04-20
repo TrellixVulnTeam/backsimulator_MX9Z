@@ -244,7 +244,7 @@ class OpMongoDB():
             for x in data:
                 x['_id'] = str(x['_id'])
                 num = int(x['selecao_a'])
-                x['selecao_a'] = routers.getIdSelecao(num)
+                x['selecao_a'] = dumps(routers.getIdSelecao(num))
 
             if (data):
                 # print (data)
