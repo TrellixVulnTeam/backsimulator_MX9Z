@@ -12,8 +12,8 @@ from bson.objectid import ObjectId
 # cuperação de dados
 class OpMongoDB():
 
-    # client = MongoClient("mongodb://user:123@ds135619.mlab.com:35619/worldcup2018")
-    client = MongoClient('localhost', 27017)
+    client = MongoClient("mongodb://user:123@ds135619.mlab.com:35619/worldcup2018")
+    # client = MongoClient('localhost', 27017)
 
 
     # Construtor db = banco de dados, collection
@@ -208,7 +208,7 @@ class OpMongoDB():
     def findTeam(self, id):
         try:
             print (id)
-            pprint.pprint(self.collection.find_one({"id_selecao": id}))
+            pprint.pprint(self.collection.find_one({"id_selecao": int(id)}))
 
             res = self.collection.find()
             for x in res({'id_selecao': id}):
