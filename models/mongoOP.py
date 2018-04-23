@@ -237,8 +237,8 @@ class OpMongoDB():
                 x['_id'] = str(x['_id'])
                 numidselecaoa = int(x['selecao_a'])
                 numidselecaob = int(x['selecao_b'])
-                x['selecao_a'] = dumps(routers.getIdSelecao2(numidselecaoa))
-                x['selecao_b'] = dumps(routers.getIdSelecao2(numidselecaob))
+                x['selecao_a'] = routers.getIdSelecao2(numidselecaoa)
+                x['selecao_b'] = routers.getIdSelecao2(numidselecaob)
                 # x['selecao_a'] = cupgames.getTeam(num, request.json)
 
             if (data):
