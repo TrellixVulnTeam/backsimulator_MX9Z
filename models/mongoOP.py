@@ -213,7 +213,7 @@ class OpMongoDB():
         try:
             res = self.collection.find_one({"id_selecao": int(id)})
             res["_id"] = str(res['_id'])
-            
+
             response = {
                 "Error": False,
                 "data": res
@@ -237,8 +237,8 @@ class OpMongoDB():
                 x['_id'] = str(x['_id'])
                 numidselecaoa = int(x['selecao_a'])
                 numidselecaob = int(x['selecao_b'])
-                x['selecao_a'] = str(routers.getIdSelecao2(numidselecaoa))
-                x['selecao_b'] = str(routers.getIdSelecao2(numidselecaob))
+                x['selecao_a'] = dumps(routers.getIdSelecao2(numidselecaoa))
+                x['selecao_b'] = dumps(routers.getIdSelecao2(numidselecaob))
                 # x['selecao_a'] = cupgames.getTeam(num, request.json)
 
             if (data):
