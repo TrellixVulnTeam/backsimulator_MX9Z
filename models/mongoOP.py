@@ -31,13 +31,13 @@ class OpMongoDB():
             inserted_id = self.collection.insert(dados)
             response = {
                 "Error": False,
-                "Menssage": "Objeto adicionado com sucesso!",
+                "Message": "Objeto adicionado com sucesso!",
                 "_id": (str(inserted_id.inserted_id))
             }
         except:
             response = {
                 "Error": True,
-                "Menssage": "Dont work!!!",
+                "Message": "why!!!",
             }
         return response
 
