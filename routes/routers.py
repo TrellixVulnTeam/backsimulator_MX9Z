@@ -129,7 +129,6 @@ def ctrlSelecao():
 def ctrlPartida():
 
     if (request.method == 'POST'):
-
         res = cupgames.createMatch(request.json)
         return dumps(request.json)
 
@@ -145,7 +144,7 @@ def ctrlPartida():
 def postSimulation():
 
     if (request.method == 'POST'):
-        res = cupgames.uploadSimulation(request.json)
+        res = cupgames.createSimulation(request.json)
         return dumps(res)
 
 
