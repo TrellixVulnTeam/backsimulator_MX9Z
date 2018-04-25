@@ -38,3 +38,6 @@ def createMatch():
 
 def getSimulations(id, dados):
 	return dbSimulation.findSimulationByIdUser(id)
+
+def uploadSimulation(dados):
+    return dbSimulation.save(dados)

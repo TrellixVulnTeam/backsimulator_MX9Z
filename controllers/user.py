@@ -32,10 +32,4 @@ def listUser():
     return dbuser.list()
 
 def getUser(id):
-    return dbuser.findById(id)
-
-####################### Simulation
-
-def uploadSimulation():
-    return dbSimulation.save(dados)
-    
+    return dbuser.findById(id)    
