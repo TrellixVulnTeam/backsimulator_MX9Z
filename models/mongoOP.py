@@ -39,6 +39,7 @@ class OpMongoDB():
                 "Error": True,
                 "Menssage": "Dont work!!!",
             }
+        return response
 
     def save(self, dados):
 
@@ -72,8 +73,8 @@ class OpMongoDB():
 
             #--------------------------
             # Resposta do servidor
-            #--------------------------
             return response
+            #--------------------------
             #--------------------------
         else:
             # Caso não exista id é feito uma atualização com base
