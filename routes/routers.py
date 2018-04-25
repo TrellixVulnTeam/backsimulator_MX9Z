@@ -140,15 +140,25 @@ def ctrlPartida():
 
 
 
-@application.route('/simulacao/<iduser>',  methods=['GET', 'DELETE', 'PUT', 'POST'])
+@application.route("/simulacao", methods=['POST','GET'])
+# Função da rota indextree
+def postSimulation():
+
+    if (request.method == 'POST'):
+        res = cupgames.uploadSimulation(request.json)
+        return dumps(request.json)
+
+
+
+@application.route('/simulacao/<iduser>',  methods=['GET', 'DELETE', 'PUT', 'PATCH'])
 def getIdSimulation(iduser):
 
     if (request.method == "GET"):
         res = cupgames.getSimulations(iduser,request.json)
         return dumps(res)
-    elif (request.method == 'POST'):
-        res = cupgames.uploadSimulation(request.json)
-        return dumps(request.json)
+    # elif (request.method == 'POST'):
+    #     res = cupgames.uploadSimulation(request.json)
+    #     return dumps(request.json)
 
     # elif (request.method == 'DELETE'):
     #     res = cupgames.deleteTeam(idselecao,request.json)
