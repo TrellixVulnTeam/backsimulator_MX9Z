@@ -167,10 +167,6 @@ class OpMongoDB():
             }
         return response
 
-
-
-
-
     def list(self):
         response = {}
         try:
