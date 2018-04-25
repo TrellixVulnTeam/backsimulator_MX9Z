@@ -28,7 +28,7 @@ class OpMongoDB():
         response = {}
         try:
 
-            inserted_id = self.collection.insert_one(dados)
+            inserted_id = self.collection.insert(dados)
             response = {
                 "Error": False,
                 "Menssage": "Objeto adicionado com sucesso!",
@@ -129,20 +129,19 @@ class OpMongoDB():
         # no id recebido e mais uma vez com segurança que os dados
         # sejam atualizados
 
-
         try:
 
             res = self.collection.update({'_id': ObjectId(id)}, {"$set": dados}, upsert=True)
 
             response = {
                 "Error": False,
-                "Menssage": "Arquivo atualizado com sucesso",
+                "Message": "Arquivo atualizado com sucesso",
                 "data" : res
             }
         except:
             response = {
                 "Error": True,
-                "Menssage": "Error ao processar serviço",
+                "Message": "Error ao processar serviço",
             }
 
         # --------------------------
