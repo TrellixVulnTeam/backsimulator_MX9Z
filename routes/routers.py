@@ -144,6 +144,7 @@ def ctrlPartida():
 def postSimulation():
 
     if (request.method == 'POST'):
+        
         res = cupgames.createSimulation(request.json)
         return dumps(res)
 
