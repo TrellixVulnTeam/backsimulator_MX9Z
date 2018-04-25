@@ -290,3 +290,32 @@ class OpMongoDB():
             }
 
         return response
+
+
+    def listSort(self):
+        response = {}
+        try:
+            data = self.collection.find().sort("id_selecao")
+            data = [x for x in data]
+            for x in data:
+                x['_id'] = str(x['_id'])
+
+            if (data):
+                # print (data)
+                response = {
+                    "Error": False,
+                    "Data": data
+                }
+            else:
+                response = {
+                    "Error": True,
+                    "Menssage": "Erro ao acessar serviço"
+                }
+        except Exception as e:
+            print(e)
+            response = {
+                "Error": True,
+                "Menssage": "Error no serviço "
+            }
+
+        return response
