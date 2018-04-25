@@ -17,7 +17,7 @@ def deleteTeam(id):
     return dbteam.remove(id)
 
 def listTeam():
-    return dbteam.list()
+    return dbteam.listSort()
 
 def getTeam(id,dados):
     return dbteam.findTeam(id)
