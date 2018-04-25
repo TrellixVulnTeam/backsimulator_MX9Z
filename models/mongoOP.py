@@ -28,7 +28,7 @@ class OpMongoDB():
         response = {}
         try:
 
-            self.collection.insert_one(dados)
+            response = self.collection.insert_one(dados)
             response = {
                 "Error": False,
                 "Message": "Objeto adicionado com sucesso!",
