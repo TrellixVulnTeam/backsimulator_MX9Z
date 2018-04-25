@@ -26,6 +26,7 @@ class OpMongoDB():
     # Metodo para atualizar ou inserir novos dados
     def save(self, dados):
 
+        print dados
         # Criando variável que armazena a resposta
         response = {}
         # ----------------------------------------
