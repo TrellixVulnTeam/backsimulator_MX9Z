@@ -146,7 +146,7 @@ def postSimulation():
 
     if (request.method == 'POST'):
         res = cupgames.uploadSimulation(request.json)
-        return dumps(request.json)
+        return dumps(res)
 
 
 
