@@ -196,13 +196,6 @@ class OpMongoDB():
         return response
 
 
-
-
-
-
-
-
-
     def findById(self, id):
         try:
             res = self.collection.find_one({"_id": ObjectId(id)})
