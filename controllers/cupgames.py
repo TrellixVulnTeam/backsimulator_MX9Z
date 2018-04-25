@@ -40,4 +40,4 @@ def getSimulations(id, dados):
 	return dbSimulation.findSimulationByIdUser(id)
 
 def createSimulation(dados):
-    return dbSimulation.save(dados)
+    return dbSimulation.saveIW(dados)
