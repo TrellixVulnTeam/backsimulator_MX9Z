@@ -354,7 +354,7 @@ class OpMongoDB():
             data = [x for x in data]
             for x in data:
                 x["_id"] = str(x['_id'])
-                x["id_partida"] = 
+                # x["id_partida"] = 
 
             if (data):
                 # print (data)
