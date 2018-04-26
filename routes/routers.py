@@ -219,7 +219,7 @@ def teste():
 
     if (request.method == 'POST'):
         res = user.teste(request.json)
-        # print request.json
+        print (request.json)
         return dumps(request.json)
 
     elif (request.method == 'GET'):
