@@ -346,7 +346,7 @@ class OpMongoDB():
 
     def findGroup(self, id):
         try:
-            data = self.collection.find({"grupo": id})
+            data = self.collection.find({"grupo": id}).sort("id_selecao")
             data = [x for x in data]
             for x in data:
                 x["_id"] = str(x['_id'])
