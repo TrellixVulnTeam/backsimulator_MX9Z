@@ -198,15 +198,20 @@ def ctrlPartidabyId(id):
         res = match.listMatchbyId(id)
         return dumps(res)
 
+#sem rota pelo amor de Deus
+def ctrlPartidabyId2(id):
 
-
+    if (request.method == 'GET'):
+        res = match.listMatchbyId(id)
+        return res
+        
 ############################################
 ################## grupos ##################
 ############################################
 
-# @application.route('/user/<iduser>/grupo/<idgrupo>',  methods=['GET', 'DELETE', 'PUT', 'PATCH'])
-# def getIdGrupo(iduser,idgrupo):
+@application.route('/user/<iduser>/grupo/<idgrupo>',  methods=['GET', 'DELETE', 'PUT', 'PATCH'])
+def getIdGrupo(iduser,idgrupo):
 
-#     if (request.method == "GET"):
-#         res = team.getGroup(iduser, idgrupo,request.json)
-#         return dumps(res)
+    if (request.method == "GET"):
+        res = team.getGroup(iduser, idgrupo,request.json)
+        return dumps(res)
