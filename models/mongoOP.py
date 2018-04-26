@@ -30,9 +30,6 @@ class OpMongoDB():
         try:
             response = self.collection.insert(response)
             # self.collection.insert_one({"dados":1})
-            reseponse = {
-                "hi":"dados"
-            }
 
         except:
             response = {
@@ -40,7 +37,7 @@ class OpMongoDB():
                 "Menssage": "FAIL",
             }
 
-        return response
+        return dados
 
     def save(self, dados):
 
