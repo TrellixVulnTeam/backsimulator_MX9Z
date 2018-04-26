@@ -195,7 +195,7 @@ def ctrlPartida():
 ############################################
 
 @application.route('/grupo/<idgrupo>',  methods=['GET', 'DELETE', 'PUT', 'PATCH'])
-def getIdSelecao(idgrupo):
+def getIdGrupo(idgrupo):
 
     if (request.method == "GET"):
         res = team.getGroup(idgrupo,request.json)
