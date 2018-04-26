@@ -394,7 +394,7 @@ class OpMongoDB():
             data = [x for x in data]
             for x in data:
                 x['_id'] = str(x['_id'])
-                # numidselecao = int(x['id_partida'])
+                rodada = int(x['rodada'])
                 x['rodada'] = routers.getIdPartida3(rodada)
                 # x['selecao_a'] = cupgames.getTeam(num, request.json)
 
