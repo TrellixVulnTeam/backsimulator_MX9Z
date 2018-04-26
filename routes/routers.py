@@ -154,6 +154,11 @@ def getIdPartida2(idpartida):
         return res
 
 
+def getIdPartida3(rodada):
+
+    if (request.method == "GET"):
+        res = match.listMatchbyRodada(rodada,request.json)
+        return res
 
 @application.route('/selecao/<idselecao>',  methods=['GET', 'DELETE', 'PUT', 'PATCH'])
 def getIdSelecao(idselecao):

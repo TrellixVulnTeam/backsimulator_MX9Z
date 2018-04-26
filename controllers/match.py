@@ -13,3 +13,6 @@ def createMatch():
 
 def listMatchbyId(id,dados):
 	return dbMatch.findMatchById(id)
+
+def listMatchbyId(rodada,dados):
+	return dbMatch.listMatchbyRodada(rodada)

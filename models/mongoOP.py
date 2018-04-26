@@ -248,6 +248,24 @@ class OpMongoDB():
         return response
 
 
+    def listMatchbyRodada(self, id):
+        try:
+            res = self.collection.find_one({"rodada": int(id)})
+            res["_id"] = str(res['_id'])
+
+            response = {
+                "Error": False,
+                "data": res
+            }
+        except:
+            response = {
+                "Error": True,
+                "Menssage": "Error no serviço "
+            }
+
+        return response
+
+
 
     def listarSelecoes(self):
         response = {}
@@ -377,7 +395,7 @@ class OpMongoDB():
             for x in data:
                 x['_id'] = str(x['_id'])
                 numidselecao = int(x['id_partida'])
-                x['id_partida'] = routers.getIdPartida2(numidselecao)
+                x['id_partida'] = routers.getIdPartida3(rodada)
                 # x['selecao_a'] = cupgames.getTeam(num, request.json)
 
             if (data):
