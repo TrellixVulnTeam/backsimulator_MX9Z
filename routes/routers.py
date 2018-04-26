@@ -219,7 +219,7 @@ def teste():
 
     if (request.method == 'POST'):
         res = user.teste(request.json)
-        return dumps(res)
+        return dumps(request.json)
 
     elif (request.method == 'GET'):
         res = match.listMatch()

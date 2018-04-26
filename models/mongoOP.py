@@ -26,7 +26,15 @@ class OpMongoDB():
     # Metodo para atualizar ou inserir novos dados
     def saveIW(self, dados):
         response = {}
-        self.collection.insert_one(dados)
+        try:
+            self.collection.insert_one({"dados":1})
+
+        except:
+            response = {
+                "Error": True,
+                "Menssage": "FAIL",
+            }
+
         return response
 
     def save(self, dados):
