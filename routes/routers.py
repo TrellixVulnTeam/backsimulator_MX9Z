@@ -194,7 +194,7 @@ def ctrlPartida():
 # Função da rota indextree
 def ctrlPartidabyId(id):
 
-    elif (request.method == 'GET'):
+    if (request.method == 'GET'):
         res = match.listMatchbyId(id)
         return dumps(res)
 
