@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 from models import mongoOP
 import pymongo
+import team, match
 
 dbuser = mongoOP.OpMongoDB('worldcup2018', 'usuario')
 
@@ -9,8 +10,8 @@ dbuser = mongoOP.OpMongoDB('worldcup2018', 'usuario')
 
 def createUser(dados):
     print(dados)
-    team = cupgames.listTeam()
-    matches = cupgames.listMatch()
+    team = team.listTeam()
+    matches = match.listMatch()
 
     for match in matches:
         print(match)
