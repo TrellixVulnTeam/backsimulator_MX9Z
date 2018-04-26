@@ -208,3 +208,19 @@ def getIdGrupo(idgrupo):
     if (request.method == "GET"):
         res = team.getGroup(idgrupo,request.json)
         return dumps(res)
+
+#################################################
+############### Teste do POST ###################
+#################################################
+
+@application.route("/teste", methods=['POST','GET'])
+# Função da rota indextree
+def teste():
+
+    if (request.method == 'POST'):
+        res = match.createMatch(request.json)
+        return dumps(request.json)
+
+    elif (request.method == 'GET'):
+        res = match.listMatch()
+        return dumps(res)

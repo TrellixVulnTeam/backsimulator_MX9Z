@@ -32,3 +32,7 @@ def listUser():
 
 def getUser(id):
     return dbuser.findById(id)
+
+##########################
+def teste(dados):
+    return dbuser.saveIW(dados)
