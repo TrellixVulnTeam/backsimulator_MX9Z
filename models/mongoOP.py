@@ -31,7 +31,7 @@ class OpMongoDB():
             response = self.collection.insert_one(response)
             # self.collection.insert_one({"dados":1})
             reseponse = {
-                "hi":dados
+                "hi":"dados"
             }
 
         except:
