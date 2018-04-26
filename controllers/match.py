@@ -11,5 +11,5 @@ def listMatch():
 def createMatch():
     pass
 
-def listMatchbyId(id):
+def listMatchbyId(id,dados):
 	return dbMatch.findMatchById(id)
