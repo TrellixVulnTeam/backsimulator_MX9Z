@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 from models import mongoOP
 import pymongo
-import team, match
+from controllers import team, match
 
 dbuser = mongoOP.OpMongoDB('worldcup2018', 'usuario')
 
