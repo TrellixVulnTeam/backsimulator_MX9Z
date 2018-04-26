@@ -218,7 +218,7 @@ def getIdGrupo(idgrupo):
 def teste():
 
     if (request.method == 'POST'):
-        res = user.teste(request.data)
+        res = user.teste(dumps(request.data))
         print dumps(request.data)
         return dumps(request.data)
 
