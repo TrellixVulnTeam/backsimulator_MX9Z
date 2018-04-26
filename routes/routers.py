@@ -188,3 +188,15 @@ def ctrlPartida():
     elif (request.method == 'GET'):
         res = match.listMatch()
         return dumps(res)
+
+
+############################################
+################## grupos ##################
+############################################
+
+@application.route('/grupo/<idgrupo>',  methods=['GET', 'DELETE', 'PUT', 'PATCH'])
+def getIdSelecao(idgrupo):
+
+    if (request.method == "GET"):
+        res = team.getGroup(idgrupo,request.json)
+        return dumps(res)

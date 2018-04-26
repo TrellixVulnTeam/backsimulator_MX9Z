@@ -324,3 +324,30 @@ class OpMongoDB():
             }
 
         return response
+
+
+    def findGroup(self, id):
+        try:
+            data = self.collection.find({"grupo": id})
+            data = [x for x in data]
+            for x in data:
+                x["_id"] = str(x['_id'])
+
+            if (data):
+                # print (data)
+                response = {
+                    "Error": False,
+                    "Data": data
+                }
+            else:
+                response = {
+                    "Error": True,
+                    "Menssage": "Erro ao acessar serviço"
+                }
+        except:
+            response = {
+                "Error": True,
+                "Menssage": "Error no serviço "
+            }
+
+        return response

@@ -23,3 +23,6 @@ def getTeam(id,dados):
 
 def addLoc(id, dados):
     return dbteam.patch(id, dados)
+
+def getGroup(id):
+	return dbteam.findGroup(id)
