@@ -269,29 +269,19 @@ class OpMongoDB():
     def listarSelecoesbyId(self, id):
         response = {}
         try:
-            data = self.collection.find()
-            data = [x for x in data]
-            for x in data:
-                x['_id'] = str(x['_id'])
-                numidselecaoa = int(x['selecao_a'])
-                numidselecaob = int(x['selecao_b'])
-                x['selecao_a'] = routers.getIdSelecao2(numidselecaoa)
-                x['selecao_b'] = routers.getIdSelecao2(numidselecaob)
-                # x['selecao_a'] = cupgames.getTeam(num, request.json)
+            res = self.collection.find_one({"id_partida":int(id)})
+            res['_id'] = str(res['_id'])
+            numidselecaoa = int(res['selecao_a'])
+            numidselecaob = int(res['selecao_b'])
+            res['selecao_a'] = routers.getIdSelecao2(numidselecaoa)
+            res['selecao_b'] = routers.getIdSelecao2(numidselecaob)
+            # x['selecao_a'] = cupgames.getTeam(num, request.json)
 
-            if (data):
-                # print (data)
-                response = {
-                    "Error": False,
-                    "Data": data
-                }
-            else:
-                response = {
-                    "Error": True,
-                    "Menssage": "Erro ao acessar serviço"
-                }
-        except Exception as e:
-            print(e)
+            response = {
+                "Error": False,
+                "data": res
+            }
+        except:
             response = {
                 "Error": True,
                 "Menssage": "Error no serviço "
