@@ -97,7 +97,6 @@ def postSimulation():
         return dumps(res)
 
 
-
 @application.route('/simulacao/<iduser>',  methods=['GET', 'DELETE', 'PUT', 'PATCH'])
 def getIdSimulation(iduser):
 
@@ -122,6 +121,7 @@ def getIdSimulation(iduser):
 ----------------------------------------------------
 """
 
+@application.route("/selecao", methods=['POST','GET'])
 def getIdSelecao2(idselecao):
 
     if (request.method == "GET"):
