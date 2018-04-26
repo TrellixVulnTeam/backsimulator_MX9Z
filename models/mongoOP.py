@@ -266,16 +266,19 @@ class OpMongoDB():
 
         return response
 
-
-    def findSimulationByIdUser(self, id):
+    def listarSelecoesbyId(self, id):
+        response = {}
         try:
-            data = self.collection.find({"id_usuario": id})
+            data = self.collection.find()
             data = [x for x in data]
             for x in data:
                 x['_id'] = str(x['_id'])
+                numidselecaoa = int(x['selecao_a'])
+                numidselecaob = int(x['selecao_b'])
+                x['selecao_a'] = routers.getIdSelecao2(numidselecaoa)
+                x['selecao_b'] = routers.getIdSelecao2(numidselecaob)
+                # x['selecao_a'] = cupgames.getTeam(num, request.json)
 
-
-            # res["_id"] = str(res['_id'])
             if (data):
                 # print (data)
                 response = {
@@ -289,6 +292,24 @@ class OpMongoDB():
                 }
         except Exception as e:
             print(e)
+            response = {
+                "Error": True,
+                "Menssage": "Error no serviço "
+            }
+
+        return response
+
+    def findSimulationByIdUser(self, id):
+
+        try:
+            res = self.collection.find_one({"id_usuario": id})
+            res['_id'] = str(x['_id'])
+
+            response = {
+                "Error": False,
+                "data": res
+            }
+        except:
             response = {
                 "Error": True,
                 "Menssage": "Error no serviço "
@@ -326,12 +347,14 @@ class OpMongoDB():
         return response
 
 
-    def findGroup(self, id):
+    def findGroup(self, iduser, idgroup):
+        response = {}
         try:
-            data = self.collection.find({"grupo": id})
+            data = self.collection.find({"grupo": idgroup})
             data = [x for x in data]
             for x in data:
                 x["_id"] = str(x['_id'])
+                x["id_partida"] = 
 
             if (data):
                 # print (data)

@@ -24,5 +24,5 @@ def getTeam(id,dados):
 def addLoc(id, dados):
     return dbteam.patch(id, dados)
 
-def getGroup(id, dados):
-	return dbteam.findGroup(id)
+def getGroup(iduser, idgroup, dados):
+	return dbteam.findGroup(iduser, idgroup)

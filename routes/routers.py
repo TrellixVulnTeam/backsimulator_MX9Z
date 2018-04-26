@@ -190,13 +190,23 @@ def ctrlPartida():
         return dumps(res)
 
 
+@application.route("/partida/<id>", methods=['POST','GET'])
+# Função da rota indextree
+def ctrlPartidabyId(id):
+
+    elif (request.method == 'GET'):
+        res = match.listMatchbyId(id)
+        return dumps(res)
+
+
+
 ############################################
 ################## grupos ##################
 ############################################
 
-@application.route('/grupo/<idgrupo>',  methods=['GET', 'DELETE', 'PUT', 'PATCH'])
-def getIdGrupo(idgrupo):
+# @application.route('/user/<iduser>/grupo/<idgrupo>',  methods=['GET', 'DELETE', 'PUT', 'PATCH'])
+# def getIdGrupo(iduser,idgrupo):
 
-    if (request.method == "GET"):
-        res = team.getGroup(idgrupo,request.json)
-        return dumps(res)
+#     if (request.method == "GET"):
+#         res = team.getGroup(iduser, idgrupo,request.json)
+#         return dumps(res)
