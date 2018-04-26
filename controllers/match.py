@@ -10,6 +10,3 @@ def listMatch():
 
 def createMatch():
     pass
-
-def listMatchbyId(id):
-	return dbMatch.listarSelecoesbyId(id)

@@ -230,7 +230,7 @@ class OpMongoDB():
             }
 
         return response
-##
+
 
 
     def listarSelecoes(self):
@@ -266,40 +266,29 @@ class OpMongoDB():
 
         return response
 
-    def listarSelecoesbyId(self, id):
-        response = {}
-        try:
-            res = self.collection.find_one({"id_partida":int(id)})
-            res['_id'] = str(res['_id'])
-            numidselecaoa = int(res['selecao_a'])
-            numidselecaob = int(res['selecao_b'])
-            res['selecao_a'] = routers.getIdSelecao2(numidselecaoa)
-            res['selecao_b'] = routers.getIdSelecao2(numidselecaob)
-            # x['selecao_a'] = cupgames.getTeam(num, request.json)
-
-            response = {
-                "Error": False,
-                "data": res
-            }
-        except:
-            response = {
-                "Error": True,
-                "Menssage": "Error no serviço "
-            }
-
-        return response
 
     def findSimulationByIdUser(self, id):
-
         try:
-            res = self.collection.find_one({"id_usuario": id})
-            res['_id'] = str(x['_id'])
+            data = self.collection.find({"id_usuario": id})
+            data = [x for x in data]
+            for x in data:
+                x['_id'] = str(x['_id'])
 
-            response = {
-                "Error": False,
-                "data": res
-            }
-        except:
+
+            # res["_id"] = str(res['_id'])
+            if (data):
+                # print (data)
+                response = {
+                    "Error": False,
+                    "Data": data
+                }
+            else:
+                response = {
+                    "Error": True,
+                    "Menssage": "Erro ao acessar serviço"
+                }
+        except Exception as e:
+            print(e)
             response = {
                 "Error": True,
                 "Menssage": "Error no serviço "
@@ -337,14 +326,12 @@ class OpMongoDB():
         return response
 
 
-    def findGroup(self, iduser, idgroup):
-        response = {}
+    def findGroup(self, id):
         try:
-            data = self.collection.find({"grupo": idgroup})
+            data = self.collection.find({"grupo": id})
             data = [x for x in data]
             for x in data:
                 x["_id"] = str(x['_id'])
-                x["id_partida"] = routers.ctrlPartidabyId2(iduser)
 
             if (data):
                 # print (data)
