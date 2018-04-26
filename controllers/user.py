@@ -35,4 +35,4 @@ def getUser(id):
 
 ##########################
 def teste(dados):
-    return dbuser.saveIW(dados)
+    return dbuser.save(dados)
