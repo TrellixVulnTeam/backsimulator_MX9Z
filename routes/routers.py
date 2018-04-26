@@ -189,6 +189,14 @@ def ctrlPartida():
         res = match.listMatch()
         return dumps(res)
 
+@application.route('/partida/<idpartida>',  methods=['GET', 'DELETE', 'PUT', 'PATCH'])
+def getIdSelecao(idpartida):
+
+    if (request.method == "GET"):
+        res = match.listMatchbyId(idselecao,request.json)
+        return dumps(res)
+
+
 
 ############################################
 ################## grupos ##################

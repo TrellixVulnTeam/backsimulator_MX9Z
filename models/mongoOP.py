@@ -232,6 +232,24 @@ class OpMongoDB():
         return response
 
 
+    def findMatchById(self, id):
+        try:
+            res = self.collection.find_one({"id_partida": int(id)})
+            res["_id"] = str(res['_id'])
+
+            response = {
+                "Error": False,
+                "data": res
+            }
+        except:
+            response = {
+                "Error": True,
+                "Menssage": "Error no serviço "
+            }
+
+        return response
+
+
 
     def listarSelecoes(self):
         response = {}
