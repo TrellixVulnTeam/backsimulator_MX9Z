@@ -27,7 +27,7 @@ class OpMongoDB():
     def saveIW(self, dados):
         response = {}
         try:
-            self.collection.insert_one({dados})
+            self.collection.insert_one(dados)
             # self.collection.insert_one({"dados":1})
 
         except:
