@@ -147,6 +147,14 @@ def getIdSelecao2(idselecao):
         res = team.getTeam(idselecao,request.json)
         return res
 
+def getIdPartida2(idpartida):
+
+    if (request.method == "GET"):
+        res = match.listMatchbyId(idpartida,request.json)
+        return res
+
+
+
 @application.route('/selecao/<idselecao>',  methods=['GET', 'DELETE', 'PUT', 'PATCH'])
 def getIdSelecao(idselecao):
 

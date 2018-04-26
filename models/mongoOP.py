@@ -369,5 +369,33 @@ class OpMongoDB():
         return response
 
 
-    def makeSimulation(self, id):
-        pass
+    def makeSimulation(self, iduser, idgrupo):
+        response = {}
+        try:
+            data = self.collection.find({"id_usuario": iduser})
+            data = [x for x in data]
+            for x in data:
+                x['_id'] = str(x['_id'])
+                numidselecao = int(x['id_partida'])
+                x['id_partida'] = routers.getIdPartida2(numidselecao)
+                # x['selecao_a'] = cupgames.getTeam(num, request.json)
+
+            if (data):
+                # print (data)
+                response = {
+                    "Error": False,
+                    "Data": data
+                }
+            else:
+                response = {
+                    "Error": True,
+                    "Menssage": "Erro ao acessar serviço"
+                }
+        except Exception as e:
+            print(e)
+            response = {
+                "Error": True,
+                "Menssage": "Error no serviço "
+            }
+
+        return response
