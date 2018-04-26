@@ -369,7 +369,7 @@ class OpMongoDB():
         return response
 
 
-    def makeSimulation(self, iduser, idgrupo):
+    def makeSimulation(self, iduser, rodada):
         response = {}
         try:
             data = self.collection.find({"id_usuario": iduser})

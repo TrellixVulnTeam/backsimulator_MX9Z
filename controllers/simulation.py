@@ -12,5 +12,5 @@ def createSimulation(dados):
 	pass
 	# return dbSimulation.saveIW(dados)
 
-def makeSimulation(iduser, idgrupo):
-	return dbSimulation.makeSimulation(iduser, idgrupo)
+def makeSimulation(iduser, idrodada):
+	return dbSimulation.makeSimulation(iduser, idrodada)
