@@ -120,8 +120,21 @@ def getIdSimulation(iduser):
                     TEAM
 ----------------------------------------------------
 """
-
 @application.route("/selecao", methods=['POST','GET'])
+# Função da rota indextree
+def ctrlSelecao():
+
+    if (request.method == 'POST'):
+        res['id_selecao']=1;
+        res = team.createTeam(request.json)
+        return dumps(request.json)
+
+    elif (request.method == 'GET'):
+        res = team.listTeam()
+        print (res)
+        return dumps(res)
+
+
 def getIdSelecao2(idselecao):
 
     if (request.method == "GET"):
