@@ -193,7 +193,7 @@ def ctrlPartida():
 def getIdSelecao(idpartida):
 
     if (request.method == "GET"):
-        res = match.listMatchbyId(idselecao,request.json)
+        res = match.listMatchbyId(idpartida,request.json)
         return dumps(res)
 
 
