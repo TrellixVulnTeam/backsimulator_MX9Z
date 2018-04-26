@@ -2,7 +2,7 @@
 
 # Este modulo carrega todas as funções do flask
 
-from flask import Flask, request
+from flask import Flask, request, jsonify
 from flask_cors import CORS, cross_origin
 from werkzeug.routing import BaseConverter, ValidationError
 from itsdangerous import base64_encode, base64_decode
@@ -219,7 +219,7 @@ def teste():
 
     if (request.method == 'POST'):
         res = user.teste(request.json)
-        print (request.json)
+        print (jsonify(request.json))
         return dumps(request.json)
 
     elif (request.method == 'GET'):
