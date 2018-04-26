@@ -190,7 +190,7 @@ def ctrlPartida():
         return dumps(res)
 
 @application.route('/partida/<idpartida>',  methods=['GET', 'DELETE', 'PUT', 'PATCH'])
-def getIdSelecao(idpartida):
+def getIdPartida(idpartida):
 
     if (request.method == "GET"):
         res = match.listMatchbyId(idpartida,request.json)
