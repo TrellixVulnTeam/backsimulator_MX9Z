@@ -36,7 +36,7 @@ class OpMongoDB():
                 "Menssage": "FAIL",
             }
 
-        return response
+        return dados
 
     def save(self, dados):
 
