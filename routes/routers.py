@@ -121,12 +121,12 @@ def getIdSimulation(iduser):
 ----------------------------------------------------
 """
 #
-# @application.route("/selecao", methods=['POST','GET'])
-# def getIdSelecao2(idselecao):
-#
-#     if (request.method == "GET"):
-#         res = team.getTeam(idselecao,request.json)
-#         return res
+@application.route("/selecao", methods=['POST','GET'])
+def getIdSelecao2(idselecao):
+
+    if (request.method == "GET"):
+        res = team.getTeam(idselecao,request.json)
+        return res
 
 @application.route('/selecao/<idselecao>',  methods=['GET', 'DELETE', 'PUT', 'PATCH'])
 def getIdSelecao(idselecao):
@@ -144,19 +144,19 @@ def getIdSelecao(idselecao):
         return dumps(res)
 
 
-@application.route("/selecao", methods=['POST','GET'])
-# Função da rota indextree
-def ctrlSelecao():
-
-    if (request.method == 'POST'):
-        res['id_selecao']=1;
-        res = team.createTeam(request.json)
-        return dumps(request.json)
-
-    elif (request.method == 'GET'):
-        res = team.listTeam()
-        print (res)
-        return dumps(res)
+# @application.route("/selecao", methods=['POST','GET'])
+# # Função da rota indextree
+# def ctrlSelecao():
+#
+#     if (request.method == 'POST'):
+#         res['id_selecao']=1;
+#         res = team.createTeam(request.json)
+#         return dumps(request.json)
+#
+#     elif (request.method == 'GET'):
+#         res = team.listTeam()
+#         print (res)
+#         return dumps(res)
 
 """
 ----------------------------------------------------
