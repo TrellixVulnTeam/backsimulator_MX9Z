@@ -9,4 +9,8 @@ def getSimulations(id, dados):
 	return dbSimulation.findSimulationByIdUser(id)
 
 def createSimulation(dados):
-    return dbSimulation.saveIW(dados)
+	pass
+	# return dbSimulation.saveIW(dados)
+
+def makeSimulation(iduser, idgrupo):
+	return dbSimulation.makeSimulation(iduser, idgrupo)

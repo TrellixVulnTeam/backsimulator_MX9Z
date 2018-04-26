@@ -367,3 +367,7 @@ class OpMongoDB():
             }
 
         return response
+
+
+    def makeSimulation(self, id):
+        pass

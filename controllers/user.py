@@ -35,5 +35,4 @@ def getUser(id):
 
 ##########################
 def teste(dados):
-    # print (dados)
     return dbuser.saveIW(dados)

@@ -96,6 +96,12 @@ def postSimulation():
         res = simulation.createSimulation(request.json)
         return dumps(res)
 
+@application.route('/simulacao/<iduser>/grupo/<idgrupo>',  methods=['GET', 'DELETE', 'PUT', 'PATCH'])
+def getIdSimulation(iduser, idgrupo):
+
+    if (request.method == "GET"):
+        res = simulation.makeSimulation(iduser, idgrupo, request.json)
+        return dumps(res)
 
 @application.route('/simulacao/<iduser>',  methods=['GET', 'DELETE', 'PUT', 'PATCH'])
 def getIdSimulation(iduser):
@@ -209,9 +215,9 @@ def getIdGrupo(idgrupo):
         res = team.getGroup(idgrupo,request.json)
         return dumps(res)
 
-#################################################
-############### Teste do POST ###################
-#################################################
+#############################################
+############### Teste do POST ###############
+#############################################
 
 @application.route("/teste", methods=['POST','GET'])
 # Função da rota indextree
