@@ -120,7 +120,7 @@ def getIdSimulation(iduser):
                     TEAM
 ----------------------------------------------------
 """
-#
+
 @application.route("/selecao", methods=['POST','GET'])
 def getIdSelecao2(idselecao):
 
