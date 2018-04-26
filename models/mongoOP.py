@@ -28,7 +28,7 @@ class OpMongoDB():
         response = {}
 
         try:
-            response = self.collection.insert_one(response)
+            response = self.collection.insert(dados)
             # self.collection.insert_one({"dados":1})
             reseponse = {
                 "hi":"dados"
