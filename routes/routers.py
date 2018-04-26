@@ -22,9 +22,12 @@ class ObjectIDConverter(BaseConverter):
         return base64_encode(value.binary)
 
 
-# Importando controller de teste
+# Importando controllers
 from controllers import user
-from controllers import cupgames
+from controllers import team
+from controllers import simulation
+from controllers import match
+
 
 import json
 
@@ -37,7 +40,7 @@ CORS(application)
 
 @application.route("/", methods=['GET'])
 def ctrlRoot():
-    return "<h1>World Cup Simulator 2018</h1> <p>Web Service</p><a href='http://world-cup-20018.herokuapp.com/'>Link Externo</a>"
+    return "<h1>World Cup Simulator 2018</h1> <p>Web Service</p><a href='http://world-cup-20018.herokuapp.com/'>Front</a>"
 
 
 
@@ -47,16 +50,6 @@ def ctrlRoot():
                     USER
 ----------------------------------------------------
 """
-
-
-
-def getIdSelecao2(idselecao):
-
-    if (request.method == "GET"):
-        res = cupgames.getTeam(idselecao,request.json)
-        return res
-
-
 
 @application.route("/user", methods=['POST','GET'])
 # Função da rota indextree
@@ -89,63 +82,18 @@ def getIdUser(iduser):
         res = user.patchUser(iduser,request.json)
         return dumps(res)
 
-@application.route('/selecao/<idselecao>',  methods=['GET', 'DELETE', 'PUT', 'PATCH'])
-def getIdSelecao(idselecao):
-
-    if (request.method == "GET"):
-        res = cupgames.getTeam(idselecao,request.json)
-        return dumps(res)
-
-    elif (request.method == 'DELETE'):
-        res = cupgames.deleteTeam(idselecao,request.json)
-        return dumps(res)
-
-    elif (request.method == 'PUT'):
-        res = cupgames.uploadTeams(idselecao,request.json)
-        return dumps(res)
-
-################# PARTIDA e SIMULACAO #####################
-@application.route("/hello", methods=['GET'])
-def hello():
-    if (request.method == 'GET'):
-        return "hello"
-
-@application.route("/selecao", methods=['POST','GET'])
-# Função da rota indextree
-def ctrlSelecao():
-
-    if (request.method == 'POST'):
-        res['id_selecao']=1;
-        res = cupgames.createTeam(request.json)
-        return dumps(request.json)
-
-    elif (request.method == 'GET'):
-        res = cupgames.listTeam()
-        print (res)
-        return dumps(res)
-
-@application.route("/partida", methods=['POST','GET'])
-# Função da rota indextree
-def ctrlPartida():
-
-    if (request.method == 'POST'):
-        res = cupgames.createMatch(request.json)
-        return dumps(request.json)
-
-    elif (request.method == 'GET'):
-        res = cupgames.listMatch()
-        return dumps(res)
-
-
-
+"""
+----------------------------------------------------
+                    SIMULATION
+----------------------------------------------------
+"""
 
 @application.route("/simulacao", methods=['POST','GET'])
 # Função da rota indextree
 def postSimulation():
 
     if (request.method == 'POST'):
-        
-        res = cupgames.createSimulation(request.json)
+        res = simulation.createSimulation(request.json)
         return dumps(res)
 
 
@@ -154,7 +102,7 @@ def postSimulation():
 def getIdSimulation(iduser):
 
     if (request.method == "GET"):
-        res = cupgames.getSimulations(iduser,request.json)
+        res = simulation.getSimulations(iduser,request.json)
         return dumps(res)
     # elif (request.method == 'POST'):
     #     res = cupgames.uploadSimulation(request.json)
@@ -167,3 +115,63 @@ def getIdSimulation(iduser):
     # elif (request.method == 'PUT'):
     #     res = cupgames.uploadTeams(idselecao,request.json)
     #     return dumps(res)
+
+"""
+----------------------------------------------------
+                    TEAM
+----------------------------------------------------
+"""
+
+def getIdSelecao2(idselecao):
+
+    if (request.method == "GET"):
+        res = team.getTeam(idselecao,request.json)
+        return res
+
+@application.route('/selecao/<idselecao>',  methods=['GET', 'DELETE', 'PUT', 'PATCH'])
+def getIdSelecao(idselecao):
+
+    if (request.method == "GET"):
+        res = team.getTeam(idselecao,request.json)
+        return dumps(res)
+
+    elif (request.method == 'DELETE'):
+        res = team.deleteTeam(idselecao,request.json)
+        return dumps(res)
+
+    elif (request.method == 'PUT'):
+        res = team.uploadTeams(idselecao,request.json)
+        return dumps(res)
+
+
+@application.route("/selecao", methods=['POST','GET'])
+# Função da rota indextree
+def ctrlSelecao():
+
+    if (request.method == 'POST'):
+        res['id_selecao']=1;
+        res = team.createTeam(request.json)
+        return dumps(request.json)
+
+    elif (request.method == 'GET'):
+        res = team.listTeam()
+        print (res)
+        return dumps(res)
+
+"""
+----------------------------------------------------
+                    MATCH
+----------------------------------------------------
+"""
+
+@application.route("/partida", methods=['POST','GET'])
+# Função da rota indextree
+def ctrlPartida():
+
+    if (request.method == 'POST'):
+        res = match.createMatch(request.json)
+        return dumps(request.json)
+
+    elif (request.method == 'GET'):
+        res = match.listMatch()
+        return dumps(res)

@@ -4,8 +4,6 @@ from bson.json_util import dumps
 from models import mongoOP
 
 dbteam = mongoOP.OpMongoDB('worldcup2018','selecao')
-dbMatch = mongoOP.OpMongoDB('worldcup2018','partida')
-dbSimulation = mongoOP.OpMongoDB('worldcup2018','simulacao')
 
 def createTeam(dados):
     return dbteam.save(dados)
@@ -25,19 +23,3 @@ def getTeam(id,dados):
 
 def addLoc(id, dados):
     return dbteam.patch(id, dados)
-
-########################
-
-# def listMatch():
-#     return dbMatch.list()
-def listMatch():
-    return dbMatch.listarSelecoes()
-
-def createMatch():
-    pass
-
-def getSimulations(id, dados):
-	return dbSimulation.findSimulationByIdUser(id)
-
-def createSimulation(dados):
-    return dbSimulation.saveIW(dados)

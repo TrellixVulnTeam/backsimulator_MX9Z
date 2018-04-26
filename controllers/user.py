@@ -5,8 +5,6 @@ import pymongo
 from controllers import cupgames
 
 dbuser = mongoOP.OpMongoDB('worldcup2018', 'usuario')
-dbSimulation = mongoOP.OpMongoDB('worldcup2018','simulacao')
-
 
 # dbuser.collection.create_index([("email", pymongo.ASCENDING)], unique=True)
 
@@ -32,4 +30,4 @@ def listUser():
     return dbuser.list()
 
 def getUser(id):
-    return dbuser.findById(id)    
+    return dbuser.findById(id)
