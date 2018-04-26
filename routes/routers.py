@@ -120,13 +120,13 @@ def getIdSimulation(iduser):
                     TEAM
 ----------------------------------------------------
 """
-
-@application.route("/selecao", methods=['POST','GET'])
-def getIdSelecao2(idselecao):
-
-    if (request.method == "GET"):
-        res = team.getTeam(idselecao,request.json)
-        return res
+#
+# @application.route("/selecao", methods=['POST','GET'])
+# def getIdSelecao2(idselecao):
+#
+#     if (request.method == "GET"):
+#         res = team.getTeam(idselecao,request.json)
+#         return res
 
 @application.route('/selecao/<idselecao>',  methods=['GET', 'DELETE', 'PUT', 'PATCH'])
 def getIdSelecao(idselecao):
