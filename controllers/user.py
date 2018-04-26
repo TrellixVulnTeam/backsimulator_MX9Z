@@ -11,11 +11,11 @@ dbuser = mongoOP.OpMongoDB('worldcup2018', 'usuario')
 
 def createUser(dados):
     print(dados)
-    # team = team.listTeam()
-    # matches = match.listMatch()
-    #
-    # for match in matches:
-    #     print(match)
+    team = team.listTeam()
+    matches = match.listMatch()
+
+    for match in matches:
+        print(match)
     return dbuser.save(dados)
 
 def uploadUser(id, dados):
