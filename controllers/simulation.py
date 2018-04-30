@@ -3,6 +3,8 @@
 from bson.json_util import dumps
 from models import mongoOP
 
+from routes import routers
+
 dbSimulation = mongoOP.OpMongoDB('worldcup2018','simulacao')
 
 def getSimulations(id, dados):
@@ -14,10 +16,19 @@ def createSimulation(dados):
 
 def createSimulationGroup(dados, iduser, idgrupo):
 	response = {}
+	print (idgrupo)
+	t = routers.getIdPartida2(11)
+	print (t)
+	print (t['rodada'])
+	# matchAtual = routers.getIdPartida2(int(idgrupo))
+	# matchAtual['data'] = routers.getIdPartida2(idgrupo)
+
+	# print (dumps(matchAtual))
+	# print (matchAtual['data'])
 
 	try:
-		dados['gols_a'] = 0
-		dados['gols_b'] = 0
+		# dados['gols_b'] = matchAtual['data']
+		# dados['gols_a'] = matchAtual['rodada']
 		response = dbSimulation.collection.insert(dados)
 		# self.collection.insert_one({"dados":1})
 	except:
