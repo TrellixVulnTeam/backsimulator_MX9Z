@@ -96,11 +96,11 @@ def postSimulation():
         res = simulation.createSimulation(request.json)
         return dumps(res)
 
-@application.route('/simulacao/<iduser>/rodada/<idrodada>',  methods=['GET', 'DELETE', 'PUT', 'PATCH'])
-def makeSimulation(iduser, idrodada):
+@application.route('/simulacao/<iduser>/grupo/<idgrupo>',  methods=['POST','GET'])
+def postSimulationGroup(iduser, idgrupo):
 
-    if (request.method == "GET"):
-        res = simulation.makeSimulation(iduser, idrodada)
+    if (request.method == 'POST'):
+        res = simulation.createSimulationGroup(request.json, iduser, idgrupo)
         return dumps(res)
 
 @application.route('/simulacao/<iduser>',  methods=['GET', 'DELETE', 'PUT', 'PATCH'])
