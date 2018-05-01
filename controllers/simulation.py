@@ -10,16 +10,10 @@ dbSimulation = mongoOP.OpMongoDB('worldcup2018','simulacao')
 def getSimulations(id, dados):
 	return dbSimulation.findSimulationByIdUser(id)
 
-def createSimulation(dados):
-	pass
-	# return dbSimulation.saveIW(dados)
-
-def createSimulationGroup(dados, iduser, idgrupo):
+def simulateGroup(dados, iduser, idgrupo):
 	response = {}
-	print (idgrupo)
 	t = routers.getIdPartida2(11)
 	print (t)
-	print (t['rodada'])
 	# matchAtual = routers.getIdPartida2(int(idgrupo))
 	# matchAtual['data'] = routers.getIdPartida2(idgrupo)
 

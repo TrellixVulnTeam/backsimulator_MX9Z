@@ -88,19 +88,11 @@ def getIdUser(iduser):
 ----------------------------------------------------
 """
 
-@application.route("/simulacao", methods=['POST','GET'])
-# Função da rota indextree
-def postSimulation():
-
-    if (request.method == 'POST'):
-        res = simulation.createSimulation(request.json)
-        return dumps(res)
-
-@application.route('/simulacao/<iduser>/grupo/<idgrupo>',  methods=['POST','GET'])
+@application.route('/simular/<iduser>/grupo/<idgrupo>',  methods=['POST','GET'])
 def postSimulationGroup(iduser, idgrupo):
 
     if (request.method == 'POST'):
-        res = simulation.createSimulationGroup(request.json, iduser, idgrupo)
+        res = simulation.simulateGroup(request.json, iduser, idgrupo)
         return dumps(res)
 
 @application.route('/simulacao/<iduser>',  methods=['GET', 'DELETE', 'PUT', 'PATCH'])
@@ -109,17 +101,6 @@ def getIdSimulation(iduser):
     if (request.method == "GET"):
         res = simulation.getSimulations(iduser,request.json)
         return dumps(res)
-    # elif (request.method == 'POST'):
-    #     res = cupgames.uploadSimulation(request.json)
-    #     return dumps(request.json)
-
-    # elif (request.method == 'DELETE'):
-    #     res = cupgames.deleteTeam(idselecao,request.json)
-    #     return dumps(res)
-
-    # elif (request.method == 'PUT'):
-    #     res = cupgames.uploadTeams(idselecao,request.json)
-    #     return dumps(res)
 
 """
 ----------------------------------------------------
@@ -175,21 +156,6 @@ def getIdSelecao(idselecao):
         res = team.uploadTeams(idselecao,request.json)
         return dumps(res)
 
-
-# @application.route("/selecao", methods=['POST','GET'])
-# # Função da rota indextree
-# def ctrlSelecao():
-#
-#     if (request.method == 'POST'):
-#         res['id_selecao']=1;
-#         res = team.createTeam(request.json)
-#         return dumps(request.json)
-#
-#     elif (request.method == 'GET'):
-#         res = team.listTeam()
-#         print (res)
-#         return dumps(res)
-
 """
 ----------------------------------------------------
                     MATCH
@@ -226,22 +192,4 @@ def getIdGrupo(idgrupo):
 
     if (request.method == "GET"):
         res = team.getGroup(idgrupo,request.json)
-        return dumps(res)
-
-#############################################
-############### Teste do POST ###############
-#############################################
-
-@application.route("/teste", methods=['POST','GET'])
-# Função da rota indextree
-def teste():
-
-    if (request.method == 'POST'):
-        data = dumps(request.data)
-        print (data)
-        res = user.teste(data)
-        return dumps(res)
-
-    elif (request.method == 'GET'):
-        res = match.listMatch()
         return dumps(res)
