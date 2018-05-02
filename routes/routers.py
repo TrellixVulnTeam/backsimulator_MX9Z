@@ -130,9 +130,8 @@ def getIdSelecao2(idselecao):
 
 def getIdPartida2(idpartida):
 
-    if (request.method == "GET"):
-        res = match.listMatchbyId(idpartida,request.json)
-        return res
+    res = match.listMatchbyId(idpartida,request.json)
+    return res
 
 
 def getIdPartida3(rodada):
@@ -193,3 +192,8 @@ def getIdGrupo(idgrupo):
     if (request.method == "GET"):
         res = team.getGroup(idgrupo,request.json)
         return dumps(res)
+
+def getIdGrupo2(idgrupo):
+
+    res = team.getGroup(idgrupo,request.json)
+    return res
