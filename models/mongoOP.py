@@ -48,7 +48,7 @@ class OpMongoDB():
         # se não, adiciona um novo
         # ----------------------------------------
         try:
-            a= dados['_id']
+            a= dados['id']
         except:
             a = None
 
