@@ -211,6 +211,19 @@ class OpMongoDB():
 
         return response
 
+    def findUser(self, id):
+
+        try:
+            res = self.collection.find_one({"id": id})
+            # res["_id"] = str(res['_id'])
+
+            if res==None:
+                return False
+            else:
+                return True
+
+        except:
+            pass
 
     def findTeam(self, id):
         try:
