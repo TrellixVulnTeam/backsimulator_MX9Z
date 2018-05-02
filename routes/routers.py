@@ -88,11 +88,11 @@ def getIdUser(iduser):
 ----------------------------------------------------
 """
 
-@application.route('/simular/<iduser>/grupo/<idgrupo>',  methods=['POST','GET'])
-def postSimulationGroup(iduser, idgrupo):
+@application.route('/simulargrupo/<idgrupo>',  methods=['POST','GET'])
+def postSimulationGroup(idgrupo):
 
     if (request.method == 'POST'):
-        res = simulation.simulateGroup(request.json, iduser, idgrupo)
+        res = simulation.simulateGroup(request.json, idgrupo)
         return dumps(res)
 
 @application.route('/simulacao/<iduser>',  methods=['GET', 'DELETE', 'PUT', 'PATCH'])

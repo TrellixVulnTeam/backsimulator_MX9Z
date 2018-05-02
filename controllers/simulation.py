@@ -10,7 +10,7 @@ dbSimulation = mongoOP.OpMongoDB('worldcup2018','simulacao')
 def getSimulations(id, dados):
 	return dbSimulation.findSimulationByIdUser(id)
 
-def simulateGroup(dados, iduser, idgrupo):
+def simulateGroup(dados, idgrupo):
 
 	response = {}
 	# data = [{'id_selecao':0, 'qtd_jogos':0, 'num_vitorias':0,'num_empates':0,'num_derrotas':0,'pontos':0,'gols_pro':0,'gols_sofridos':0,'saldo_gols':0}]
