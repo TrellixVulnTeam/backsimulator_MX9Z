@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 from bson.json_util import dumps
 from models import mongoOP
+from operator import itemgetter
 
 from routes import routers
 
@@ -68,33 +69,16 @@ def simulateGroup(dados, idgrupo):
 
 			data[y]['pontos'] = (data[y]['num_vitorias']*3)+data[y]['num_empates']
 
-		print (dados['data'][x])
+		# print (dados['data'][x])
 
-
-
-	# for x in grupoIdPartida[idgrupo]:
-	# 	print (x)
-	# 	matchAtual = routers.getIdPartida2(x)
-	#
-	# 	for x in range(0,4):
-	#
-	# 		if (data[x]['id_selecao'] == matchAtual['data']['selecao_a']):
-	#
-	# 			data[x]['qtd_jogos'] += 1
-	#
-	# 			# if dados[x]['selecao_a']>dados[x]['selecao_b']:
-	# 			# 	data[x]['num_vitorias'] += 1
-	# 			# elif ddosa[x]['selecao_a']>dados[x]['selecao_b']:
-	# 			# 	data[x]['num_empates'] += 1
-	# 			# else:
-	# 			# 	data[x]['num_derrotas'] +=1
-
+	print (data)
+	ordem = sorted(data, key=itemgetter('pontos', 'saldo_gols', 'gols_pro'),reverse=True) #Regra 1 e 2
 
 	try:
 
 		response = {
 			"Error": False,
-			"Message": data
+			"Message": ordem
 		}
 		# response = dbSimulation.collection.insert()
 
