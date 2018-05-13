@@ -27,6 +27,7 @@ from controllers import user
 from controllers import team
 from controllers import simulation
 from controllers import match
+from controllers import group
 
 
 import json
@@ -190,7 +191,7 @@ def getIdPartida(idpartida):
 def getIdGrupo(idgrupo):
 
     if (request.method == "GET"):
-        res = team.getGroup(idgrupo,request.json)
+        res = group.getGroup(idgrupo, request.json)
         return dumps(res)
 
 def getIdGrupo2(idgrupo):
