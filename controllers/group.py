@@ -14,16 +14,58 @@ def getGroup(letter, dados):
 
     jsonTeams = dbteam.findGroup(letter)
 
-    jsonMatches = [{"rodada1":[{},{}]},{"rodada2":[{},{}]},{"rodada3":[{},{}]}]
+    jsonMatches = [{"rodada1":[]},{"rodada2":[]},{"rodada3":[]}]
+
+    contador_rodada1 = 0
+    contador_rodada2 = 0
+    contador_rodada3 = 0
 
     for id in grupoIdPartida[letter]:
 
         match = dbMatch.findMatchById(id)
 
+
         if (match['data']['rodada']==1):
 
-        jsonMatches[contador]['rodada3'] = team['data']
+            jsonMatches[0]['rodada1'].append(match['data'])
 
+            query_teamA = dbteam.findTeam(match['data']['selecao_a'])
+            query_teamB = dbteam.findTeam(match['data']['selecao_b'])
+            teamA = {'nome' : query_teamA['data']['nome'], 'bandeira': query_teamA['data']['bandeira']}
+            teamB = {'nome' : query_teamB['data']['nome'], 'bandeira': query_teamB['data']['bandeira']}
+
+            jsonMatches[0]['rodada1'][contador_rodada1]['selecao_a'] = teamA
+            jsonMatches[0]['rodada1'][contador_rodada1]['selecao_b'] = teamB
+
+            contador_rodada1 += 1
+
+        elif (match['data']['rodada']==2):
+
+            jsonMatches[1]['rodada2'].append(match['data'])
+
+            query_teamA = dbteam.findTeam(match['data']['selecao_a'])
+            query_teamB = dbteam.findTeam(match['data']['selecao_b'])
+            teamA = {'nome' : query_teamA['data']['nome'], 'bandeira': query_teamA['data']['bandeira']}
+            teamB = {'nome' : query_teamB['data']['nome'], 'bandeira': query_teamB['data']['bandeira']}
+
+            jsonMatches[1]['rodada2'][contador_rodada2]['selecao_a'] = teamA
+            jsonMatches[1]['rodada2'][contador_rodada2]['selecao_b'] = teamB
+
+            contador_rodada2 += 1
+
+        else:
+
+            jsonMatches[2]['rodada3'].append(match['data'])
+
+            query_teamA = dbteam.findTeam(match['data']['selecao_a'])
+            query_teamB = dbteam.findTeam(match['data']['selecao_b'])
+            teamA = {'nome' : query_teamA['data']['nome'], 'bandeira': query_teamA['data']['bandeira']}
+            teamB = {'nome' : query_teamB['data']['nome'], 'bandeira': query_teamB['data']['bandeira']}
+
+            jsonMatches[2]['rodada3'][contador_rodada3]['selecao_a'] = teamA
+            jsonMatches[2]['rodada3'][contador_rodada3]['selecao_b'] = teamB
+
+            contador_rodada3 += 1
 
 
     try:

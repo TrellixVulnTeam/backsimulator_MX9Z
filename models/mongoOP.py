@@ -14,8 +14,8 @@ from routes import routers
 # cuperação de dados
 class OpMongoDB():
 
-    client = MongoClient('localhost', 27017)
-    # client = MongoClient("mongodb://user:123@ds135619.mlab.com:35619/worldcup2018")
+    # client = MongoClient('localhost', 27017)
+    client = MongoClient("mongodb://user:123@ds135619.mlab.com:35619/worldcup2018")
 
 
     # Construtor db = banco de dados, collection
