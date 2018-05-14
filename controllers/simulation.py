@@ -40,39 +40,64 @@ def simulateGroup(dados, idgrupo):
 
 		for y in range(0,4):
 
-			if (data[y]['id_selecao'] == matchAtual['data']['selecao_a']):
-				data[y]['qtd_jogos'] += 1
-				data[y]['gols_pro'] += dados['data'][x]['selecao_a'][0]['gols']
-				data[y]['gols_sofridos'] += dados['data'][x]['selecao_b'][0]['gols']
-				data[y]['saldo_gols'] = data[y]['gols_pro'] - data[y]['gols_sofridos']
+			if (dados['data'][x]['selecao_a'][0]['gols'] != -1 and dados['data'][x]['selecao_b'][0]['gols'] != -1):
 
-				if dados['data'][x]['selecao_a'][0]['gols']>dados['data'][x]['selecao_b'][0]['gols']:
-					data[y]['num_vitorias'] += 1
-				elif dados['data'][x]['selecao_a'][0]['gols']<dados['data'][x]['selecao_b'][0]['gols']:
-					data[y]['num_derrotas'] += 1
-				else:
-					data[y]['num_empates'] += 1
+				if (data[y]['id_selecao'] == matchAtual['data']['selecao_a']):
+					data[y]['qtd_jogos'] += 1
+					data[y]['gols_pro'] += dados['data'][x]['selecao_a'][0]['gols']
+					data[y]['gols_sofridos'] += dados['data'][x]['selecao_b'][0]['gols']
+					data[y]['saldo_gols'] = data[y]['gols_pro'] - data[y]['gols_sofridos']
+
+					if dados['data'][x]['selecao_a'][0]['gols']>dados['data'][x]['selecao_b'][0]['gols']:
+						data[y]['num_vitorias'] += 1
+					elif dados['data'][x]['selecao_a'][0]['gols']<dados['data'][x]['selecao_b'][0]['gols']:
+						data[y]['num_derrotas'] += 1
+					else:
+						data[y]['num_empates'] += 1
 
 
-			if (data[y]['id_selecao'] == matchAtual['data']['selecao_b']):
-				data[y]['qtd_jogos'] += 1
-				data[y]['gols_pro'] += dados['data'][x]['selecao_b'][0]['gols']
-				data[y]['gols_sofridos'] += dados['data'][x]['selecao_a'][0]['gols']
-				data[y]['saldo_gols'] = data[y]['gols_pro'] - data[y]['gols_sofridos']
+				if (data[y]['id_selecao'] == matchAtual['data']['selecao_b']):
+					data[y]['qtd_jogos'] += 1
+					data[y]['gols_pro'] += dados['data'][x]['selecao_b'][0]['gols']
+					data[y]['gols_sofridos'] += dados['data'][x]['selecao_a'][0]['gols']
+					data[y]['saldo_gols'] = data[y]['gols_pro'] - data[y]['gols_sofridos']
 
-				if dados['data'][x]['selecao_b'][0]['gols']>dados['data'][x]['selecao_a'][0]['gols']:
-					data[y]['num_vitorias'] += 1
-				elif dados['data'][x]['selecao_b'][0]['gols']<dados['data'][x]['selecao_a'][0]['gols']:
-					data[y]['num_derrotas'] += 1
-				else:
-					data[y]['num_empates'] += 1
+					if dados['data'][x]['selecao_b'][0]['gols']>dados['data'][x]['selecao_a'][0]['gols']:
+						data[y]['num_vitorias'] += 1
+					elif dados['data'][x]['selecao_b'][0]['gols']<dados['data'][x]['selecao_a'][0]['gols']:
+						data[y]['num_derrotas'] += 1
+					else:
+						data[y]['num_empates'] += 1
 
-			data[y]['pontos'] = (data[y]['num_vitorias']*3)+data[y]['num_empates']
+				data[y]['pontos'] = (data[y]['num_vitorias']*3)+data[y]['num_empates']
+
+			else:
+				pass
+				# data[x]['id_selecao'] = teamsByGroup['Data'][x]['id_selecao']
+				# data[x]['qtd_jogos'] = null
+				# data[x]['num_vitorias'] = "-"
+				# data[x]['num_empates'] = "-"
+				# data[x]['num_derrotas'] = "-"
+				# data[x]['pontos'] = "-"
+				# data[x]['gols_pro'] = "-"
+				# data[x]['gols_sofridos'] = "-"
+				# data[x]['saldo_gols'] = "-"
 
 		# print (dados['data'][x])
 
 	print (data)
 	ordem = sorted(data, key=itemgetter('pontos', 'saldo_gols', 'gols_pro'),reverse=True) #Regra 1 e 2
+
+	for y in range(0,4):
+		if (data[y]['qtd_jogos']==0):
+			data[y]['qtd_jogos'] = "-"
+			data[y]['num_vitorias'] = "-"
+			data[y]['num_empates'] = "-"
+			data[y]['num_derrotas'] = "-"
+			data[y]['pontos'] = "-"
+			data[y]['gols_pro'] = "-"
+			data[y]['gols_sofridos'] = "-"
+			data[y]['saldo_gols'] = "-"
 
 	try:
 
