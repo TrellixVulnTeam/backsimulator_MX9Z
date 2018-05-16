@@ -7,6 +7,7 @@ from operator import itemgetter
 from routes import routers
 
 dbSimulation = mongoOP.OpMongoDB('worldcup2018','simulacao')
+dbteam = mongoOP.OpMongoDB('worldcup2018','selecao')
 
 def getSimulations(id, dados):
 	return dbSimulation.findSimulationByIdUser(id)
@@ -24,6 +25,8 @@ def simulateGroup(dados, idgrupo):
 	for x in range(0,4):
 		# print (teamsByGroup['Data'][x])
 		data[x]['id_selecao'] = teamsByGroup['Data'][x]['id_selecao']
+		data[x]['nome'] = teamsByGroup['Data'][x]['nome']
+		data[x]['bandeira'] = teamsByGroup['Data'][x]['bandeira']
 		data[x]['qtd_jogos'] = teamsByGroup['Data'][x]['qts_jogos']
 		data[x]['num_vitorias'] = teamsByGroup['Data'][x]['vitorias']
 		data[x]['num_empates'] = teamsByGroup['Data'][x]['empates']
@@ -70,6 +73,9 @@ def simulateGroup(dados, idgrupo):
 						data[y]['num_empates'] += 1
 
 				data[y]['pontos'] = (data[y]['num_vitorias']*3)+data[y]['num_empates']
+				team = dbteam.findTeam(data[y]['id_selecao'])
+				data[y]['nome'] = team['data']['nome']
+				data[y]['bandeira'] = team['data']['bandeira']
 
 			else:
 				pass
