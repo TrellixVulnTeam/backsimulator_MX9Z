@@ -9,6 +9,35 @@ from routes import routers
 dbSimulation = mongoOP.OpMongoDB('worldcup2018','simulacao')
 dbteam = mongoOP.OpMongoDB('worldcup2018','selecao')
 
+def simulate1(dados):
+
+	#partidas das oitavas 49 a 56
+	response = {}
+	partidas = []
+
+	for x in range(0,8):
+		if (dados["grupoA"]):
+			print("grupo A")
+
+	for x in range(49,56):
+		partidas = routers.getIdPartida2(X)
+
+
+	try:
+
+		response = {
+			"Message": ordem
+		}
+		# response = dbSimulation.collection.insert()
+
+	except:
+		response = {
+			"Error": True,
+			"Message": "FAIL"
+		}
+
+	return response
+
 def getSimulations(id, dados):
 	return dbSimulation.findSimulationByIdUser(id)
 
