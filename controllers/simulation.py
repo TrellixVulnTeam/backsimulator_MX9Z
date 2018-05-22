@@ -12,31 +12,291 @@ dbteam = mongoOP.OpMongoDB('worldcup2018','selecao')
 def simulate1(dados):
 
 	#partidas das oitavas 49 a 56
-	response = {}
+	# response = [{},{},{},{},{},{},{},{}]
 	partidas = []
 
+
+	i = 0
+	for x in range(49,57):
+		partida = routers.getIdPartida2(x)
+		partidas.append(partida['data'])
+		partidas[i]['selecao_a'] = ""
+		partidas[i]['selecao_b'] = ""
+		i+=1
+
+
+	if ("grupoA" in dados):
+
+		fullTeamA = dbteam.findTeam(dados['grupoA'][0]['id_selecao'])
+		fullTeamB = dbteam.findTeam(dados['grupoA'][1]['id_selecao'])
+
+		teamA = {"id_selecao":0,"nome":"","bandeira":""}
+		teamB = {"id_selecao":0,"nome":"","bandeira":""}
+
+		teamA['id_selecao'] = fullTeamA['data']['id_selecao']
+		teamA['nome'] = fullTeamA['data']['nome']
+		teamA['bandeira'] = fullTeamA['data']['bandeira']
+
+		teamB['id_selecao'] = fullTeamB['data']['id_selecao']
+		teamB['nome'] = fullTeamB['data']['nome']
+		teamB['bandeira'] = fullTeamB['data']['bandeira']
+
+		partidas[0]['selecao_a'] = teamA
+		partidas[3]['selecao_b'] = teamB
+
+	if ("grupoB" in dados):
+
+		fullTeamA = dbteam.findTeam(dados['grupoB'][0]['id_selecao'])
+		fullTeamB = dbteam.findTeam(dados['grupoB'][1]['id_selecao'])
+
+		teamA = {"id_selecao":0,"nome":"","bandeira":""}
+		teamB = {"id_selecao":0,"nome":"","bandeira":""}
+
+		teamA['id_selecao'] = fullTeamA['data']['id_selecao']
+		teamA['nome'] = fullTeamA['data']['nome']
+		teamA['bandeira'] = fullTeamA['data']['bandeira']
+
+		teamB['id_selecao'] = fullTeamB['data']['id_selecao']
+		teamB['nome'] = fullTeamB['data']['nome']
+		teamB['bandeira'] = fullTeamB['data']['bandeira']
+
+		partidas[0]['selecao_b'] = teamA
+		partidas[3]['selecao_a'] = teamB
+
+	if ("grupoC" in dados):
+
+		fullTeamA = dbteam.findTeam(dados['grupoC'][0]['id_selecao'])
+		fullTeamB = dbteam.findTeam(dados['grupoC'][1]['id_selecao'])
+
+		teamA = {"id_selecao":0,"nome":"","bandeira":""}
+		teamB = {"id_selecao":0,"nome":"","bandeira":""}
+
+		teamA['id_selecao'] = fullTeamA['data']['id_selecao']
+		teamA['nome'] = fullTeamA['data']['nome']
+		teamA['bandeira'] = fullTeamA['data']['bandeira']
+
+		teamB['id_selecao'] = fullTeamB['data']['id_selecao']
+		teamB['nome'] = fullTeamB['data']['nome']
+		teamB['bandeira'] = fullTeamB['data']['bandeira']
+
+		partidas[1]['selecao_a'] = teamA
+		partidas[3]['selecao_b'] = teamB
+
+	if ("grupoD" in dados):
+
+		fullTeamA = dbteam.findTeam(dados['grupoD'][0]['id_selecao'])
+		fullTeamB = dbteam.findTeam(dados['grupoD'][1]['id_selecao'])
+
+		teamA = {"id_selecao":0,"nome":"","bandeira":""}
+		teamB = {"id_selecao":0,"nome":"","bandeira":""}
+
+		teamA['id_selecao'] = fullTeamA['data']['id_selecao']
+		teamA['nome'] = fullTeamA['data']['nome']
+		teamA['bandeira'] = fullTeamA['data']['bandeira']
+
+		teamB['id_selecao'] = fullTeamB['data']['id_selecao']
+		teamB['nome'] = fullTeamB['data']['nome']
+		teamB['bandeira'] = fullTeamB['data']['bandeira']
+
+		partidas[1]['selecao_b'] = teamA
+		partidas[3]['selecao_a'] = teamB
+
+	if ("grupoE" in dados):
+
+		fullTeamA = dbteam.findTeam(dados['grupoE'][0]['id_selecao'])
+		fullTeamB = dbteam.findTeam(dados['grupoE'][1]['id_selecao'])
+
+		teamA = {"id_selecao":0,"nome":"","bandeira":""}
+		teamB = {"id_selecao":0,"nome":"","bandeira":""}
+
+		teamA['id_selecao'] = fullTeamA['data']['id_selecao']
+		teamA['nome'] = fullTeamA['data']['nome']
+		teamA['bandeira'] = fullTeamA['data']['bandeira']
+
+		teamB['id_selecao'] = fullTeamB['data']['id_selecao']
+		teamB['nome'] = fullTeamB['data']['nome']
+		teamB['bandeira'] = fullTeamB['data']['bandeira']
+
+		partidas[4]['selecao_a'] = teamA
+		partidas[6]['selecao_b'] = teamB
+
+	if ("grupoF" in dados):
+
+		fullTeamA = dbteam.findTeam(dados['grupoF'][0]['id_selecao'])
+		fullTeamB = dbteam.findTeam(dados['grupoF'][1]['id_selecao'])
+
+		teamA = {"id_selecao":0,"nome":"","bandeira":""}
+		teamB = {"id_selecao":0,"nome":"","bandeira":""}
+
+		teamA['id_selecao'] = fullTeamA['data']['id_selecao']
+		teamA['nome'] = fullTeamA['data']['nome']
+		teamA['bandeira'] = fullTeamA['data']['bandeira']
+
+		teamB['id_selecao'] = fullTeamB['data']['id_selecao']
+		teamB['nome'] = fullTeamB['data']['nome']
+		teamB['bandeira'] = fullTeamB['data']['bandeira']
+
+		partidas[4]['selecao_b'] = teamA
+		partidas[6]['selecao_a'] = teamB
+
+	if ("grupoG" in dados):
+
+		fullTeamA = dbteam.findTeam(dados['grupoG'][0]['id_selecao'])
+		fullTeamB = dbteam.findTeam(dados['grupoG'][1]['id_selecao'])
+
+		teamA = {"id_selecao":0,"nome":"","bandeira":""}
+		teamB = {"id_selecao":0,"nome":"","bandeira":""}
+
+		teamA['id_selecao'] = fullTeamA['data']['id_selecao']
+		teamA['nome'] = fullTeamA['data']['nome']
+		teamA['bandeira'] = fullTeamA['data']['bandeira']
+
+		teamB['id_selecao'] = fullTeamB['data']['id_selecao']
+		teamB['nome'] = fullTeamB['data']['nome']
+		teamB['bandeira'] = fullTeamB['data']['bandeira']
+
+		partidas[5]['selecao_a'] = teamA
+		partidas[7]['selecao_b'] = teamB
+
+	if ("grupoH" in dados):
+
+		fullTeamA = dbteam.findTeam(dados['grupoH'][0]['id_selecao'])
+		fullTeamB = dbteam.findTeam(dados['grupoH'][1]['id_selecao'])
+
+		teamA = {"id_selecao":0,"nome":"","bandeira":""}
+		teamB = {"id_selecao":0,"nome":"","bandeira":""}
+
+		teamA['id_selecao'] = fullTeamA['data']['id_selecao']
+		teamA['nome'] = fullTeamA['data']['nome']
+		teamA['bandeira'] = fullTeamA['data']['bandeira']
+
+		teamB['id_selecao'] = fullTeamB['data']['id_selecao']
+		teamB['nome'] = fullTeamB['data']['nome']
+		teamB['bandeira'] = fullTeamB['data']['bandeira']
+
+		partidas[5]['selecao_b'] = teamA
+		partidas[7]['selecao_a'] = teamB
+
+	return partidas
+
+def simulate2(dados):
+
+	#partidas das oitavas 49 a 56
+	# response = [{},{},{},{},{},{},{},{}]
+	partidas = []
+	fullTeam = [{},{},{},{},{},{},{},{}]
+	team = [{},{},{},{},{},{},{},{}]
+
+	i = 0
+	for x in range(57,61):
+		partida = routers.getIdPartida2(x)
+		partidas.append(partida['data'])
+		partidas[i]['selecao_a'] = ""
+		partidas[i]['selecao_b'] = ""
+		i+=1
+
 	for x in range(0,8):
-		if (dados["grupoA"]):
-			print("grupo A")
 
-	for x in range(49,56):
-		partidas = routers.getIdPartida2(X)
+		if dados[x]=={}:
+			team[x] = ""
+		else:
+			fullTeam[x] = dbteam.findTeam(dados[x]['id_selecao'])
+			team[x] = {"id_selecao":0,"nome":"","bandeira":""}
+			team[x]['id_selecao'] = fullTeam[x]['data']['id_selecao']
+			team[x]['nome'] = fullTeam[x]['data']['nome']
+			team[x]['bandeira'] = fullTeam[x]['data']['bandeira']
 
 
-	try:
+	partidas[0]['selecao_a'] = team[0]
+	partidas[0]['selecao_b'] = team[1]
 
-		response = {
-			"Message": ordem
-		}
-		# response = dbSimulation.collection.insert()
+	partidas[1]['selecao_a'] = team[2]
+	partidas[1]['selecao_b'] = team[3]
 
-	except:
-		response = {
-			"Error": True,
-			"Message": "FAIL"
-		}
+	partidas[2]['selecao_a'] = team[4]
+	partidas[2]['selecao_b'] = team[5]
 
-	return response
+	partidas[3]['selecao_a'] = team[6]
+	partidas[3]['selecao_b'] = team[7]
+
+
+	return partidas
+
+def simulate3(dados):
+
+	#partidas das oitavas 49 a 56
+	# response = [{},{},{},{},{},{},{},{}]
+	partidas = []
+	fullTeam = [{},{},{},{}]
+	team = [{},{},{},{}]
+
+	i = 0
+	for x in range(61,63):
+		partida = routers.getIdPartida2(x)
+		partidas.append(partida['data'])
+		partidas[i]['selecao_a'] = ""
+		partidas[i]['selecao_b'] = ""
+		i+=1
+
+	for x in range(0,4):
+
+		if dados[x]=={}:
+			team[x] = ""
+		else:
+			fullTeam[x] = dbteam.findTeam(dados[x]['id_selecao'])
+			team[x] = {"id_selecao":0,"nome":"","bandeira":""}
+			team[x]['id_selecao'] = fullTeam[x]['data']['id_selecao']
+			team[x]['nome'] = fullTeam[x]['data']['nome']
+			team[x]['bandeira'] = fullTeam[x]['data']['bandeira']
+
+	print (partidas)
+
+	partidas[0]['selecao_a'] = team[0]
+	partidas[0]['selecao_b'] = team[1]
+
+	partidas[1]['selecao_a'] = team[2]
+	partidas[1]['selecao_b'] = team[3]
+
+	return partidas
+
+def simulate4(dados):
+
+	#partidas das oitavas 49 a 56
+	# response = [{},{},{},{},{},{},{},{}]
+	partidas = []
+	fullTeam = [{},{},{},{}]
+	team = [{},{},{},{}]
+
+	i = 0
+	for x in range(63,65):
+		partida = routers.getIdPartida2(x)
+		partidas.append(partida['data'])
+		partidas[i]['selecao_a'] = ""
+		partidas[i]['selecao_b'] = ""
+		i+=1
+
+	for x in range(0,4):
+
+		if dados[x]=={}:
+			team[x] = ""
+		else:
+			fullTeam[x] = dbteam.findTeam(dados[x]['id_selecao'])
+			team[x] = {"id_selecao":0,"nome":"","bandeira":""}
+			team[x]['id_selecao'] = fullTeam[x]['data']['id_selecao']
+			team[x]['nome'] = fullTeam[x]['data']['nome']
+			team[x]['bandeira'] = fullTeam[x]['data']['bandeira']
+
+	print (partidas)
+
+	partidas[0]['selecao_a'] = team[0]
+	partidas[0]['selecao_b'] = team[1]
+
+	partidas[1]['selecao_a'] = team[2]
+	partidas[1]['selecao_b'] = team[3]
+
+	return partidas
+
+
 
 def getSimulations(id, dados):
 	return dbSimulation.findSimulationByIdUser(id)

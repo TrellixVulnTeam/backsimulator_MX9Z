@@ -17,7 +17,6 @@ class OpMongoDB():
     client = MongoClient('localhost', 27017)
     # client = MongoClient("mongodb://user:123@ds135619.mlab.com:35619/worldcup2018")
 
-
     # Construtor db = banco de dados, collection
     def __init__(self, db, collection):
         self.db = self.client.get_database(db)

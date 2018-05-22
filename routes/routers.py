@@ -103,26 +103,27 @@ def postSimulation1():
         res = simulation.simulate1(request.json)
         return dumps(res)
 
-# @application.route('/fase/2',  methods=['POST','GET'])
-# def postSimulation2():
-#
-#     if (request.method == 'POST'):
-#         res = simulation.simulate2(request.json)
-#         return dumps(res)
-#
-# @application.route('/fase/3',  methods=['POST','GET'])
-# def postSimulation3():
-#
-#     if (request.method == 'POST'):
-#         res = simulation.simulate3(request.json)
-#         return dumps(res)
-#
-# @application.route('/fase/4',  methods=['POST','GET'])
-# def postSimulation4():
-#
-#     if (request.method == 'POST'):
-#         res = simulation.simulate4(request.json)
-#         return dumps(res)
+@application.route('/fase/2',  methods=['POST','GET'])
+def postSimulation2():
+
+    if (request.method == 'POST'):
+        res = simulation.simulate2(request.json)
+        return dumps(res)
+
+
+@application.route('/fase/3',  methods=['POST','GET'])
+def postSimulation3():
+
+    if (request.method == 'POST'):
+        res = simulation.simulate3(request.json)
+        return dumps(res)
+
+@application.route('/fase/4',  methods=['POST','GET'])
+def postSimulation4():
+
+    if (request.method == 'POST'):
+        res = simulation.simulate4(request.json)
+        return dumps(res)
 
 @application.route('/simulacao/<iduser>',  methods=['GET', 'DELETE', 'PUT', 'PATCH'])
 def getIdSimulation(iduser):

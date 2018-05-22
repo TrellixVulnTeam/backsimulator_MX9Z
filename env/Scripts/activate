@@ -40,7 +40,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="$(if [ "$OSTYPE" "==" "cygwin" ]; then cygpath -u 'C:\Users\igor\Documents\DEV\backsimulator\env'; else echo '/C/Users/igor/Documents/DEV/backsimulator/env'; fi;)"
+VIRTUAL_ENV="$(if [ "$OSTYPE" "==" "cygwin" ]; then cygpath -u 'C:\Users\MAZE\Documents\DEV\backsimulator\env'; else echo '/C/Users/MAZE/Documents/DEV/backsimulator/env'; fi;)"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
