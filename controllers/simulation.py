@@ -306,7 +306,7 @@ def simulateGroup(dados, idgrupo):
 	response = {}
 	# data = [{'id_selecao':0, 'qtd_jogos':0, 'num_vitorias':0,'num_empates':0,'num_derrotas':0,'pontos':0,'gols_pro':0,'gols_sofridos':0,'saldo_gols':0}]
 	data = [{},{},{},{}]
-	#ids da partida
+	# ids da partida
 	# grupoIdPartida = {"A": [1,2,17,18,33,34], "B": [3,4,19,20,35,36], "C":[5,6,21,22,37,38], "D":[7,8,23,24,39,40], "E":[10,9,25,26,41,42], "F":[12,11,27,28,43,44], "G":[13,14,30,29,45,46], "H":[16,15,31,32,47,48] }
 
 	teamsByGroup = routers.getIdGrupo2(idgrupo)
@@ -329,10 +329,12 @@ def simulateGroup(dados, idgrupo):
 	for x in range(0,6):
 
 		matchAtual = routers.getIdPartida2(dados['data'][x]['id_partida'])
+		matchAtual['data']['gols_a'] = ""
+		matchAtual['data']['gols_b'] = ""
 
 		for y in range(0,4):
 
-			if (dados['data'][x]['selecao_a'][0]['gols'] != -1 and dados['data'][x]['selecao_b'][0]['gols'] != -1):
+			if (dados['data'][x]['selecao_a'][0]['gols'] != "" and dados['data'][x]['selecao_b'][0]['gols'] != ""):
 
 				if (data[y]['id_selecao'] == matchAtual['data']['selecao_a']):
 					data[y]['qtd_jogos'] += 1
