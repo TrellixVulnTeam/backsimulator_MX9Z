@@ -193,6 +193,8 @@ def simulate2(dados):
 		partidas.append(partida['data'])
 		partidas[i]['selecao_a'] = ""
 		partidas[i]['selecao_b'] = ""
+		partidas[i]['gols_a'] = ""
+		partidas[i]['gols_b'] = ""
 		i+=1
 
 	for x in range(0,8):
