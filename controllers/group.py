@@ -36,6 +36,8 @@ def getGroup(letter, dados):
 
             jsonMatches[0]['rodada1'][contador_rodada1]['selecao_a'] = teamA
             jsonMatches[0]['rodada1'][contador_rodada1]['selecao_b'] = teamB
+            jsonMatches[0]['rodada1'][contador_rodada1]['gols_a'] = ""
+            jsonMatches[0]['rodada1'][contador_rodada1]['gols_b'] = ""
 
             contador_rodada1 += 1
 
@@ -50,6 +52,9 @@ def getGroup(letter, dados):
 
             jsonMatches[1]['rodada2'][contador_rodada2]['selecao_a'] = teamA
             jsonMatches[1]['rodada2'][contador_rodada2]['selecao_b'] = teamB
+            jsonMatches[1]['rodada2'][contador_rodada2]['gols_a'] = ""
+            jsonMatches[1]['rodada2'][contador_rodada2]['gols_b'] = ""
+
 
             contador_rodada2 += 1
 
@@ -64,6 +69,9 @@ def getGroup(letter, dados):
 
             jsonMatches[2]['rodada3'][contador_rodada3]['selecao_a'] = teamA
             jsonMatches[2]['rodada3'][contador_rodada3]['selecao_b'] = teamB
+            jsonMatches[2]['rodada3'][contador_rodada3]['gols_a'] = ""
+            jsonMatches[2]['rodada3'][contador_rodada3]['gols_b'] = ""
+
 
             contador_rodada3 += 1
 
