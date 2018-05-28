@@ -22,6 +22,8 @@ def simulate1(dados):
 		partidas.append(partida['data'])
 		partidas[i]['selecao_a'] = ""
 		partidas[i]['selecao_b'] = ""
+		partidas[i]['gols_a'] = ""
+		partidas[i]['gols_b'] = ""
 		i+=1
 
 
@@ -238,6 +240,8 @@ def simulate3(dados):
 		partidas.append(partida['data'])
 		partidas[i]['selecao_a'] = ""
 		partidas[i]['selecao_b'] = ""
+		partidas[i]['gols_a'] = ""
+		partidas[i]['gols_b'] = ""
 		i+=1
 
 	for x in range(0,4):
@@ -275,6 +279,8 @@ def simulate4(dados):
 		partidas.append(partida['data'])
 		partidas[i]['selecao_a'] = ""
 		partidas[i]['selecao_b'] = ""
+		partidas[i]['gols_a'] = ""
+		partidas[i]['gols_b'] = ""
 		i+=1
 
 	for x in range(0,4):
