@@ -44,7 +44,7 @@ def simulate1(dados):
 		teamB['bandeira'] = fullTeamB['data']['bandeira']
 
 		partidas[0]['selecao_a'] = teamA
-		partidas[3]['selecao_b'] = teamB
+		partidas[2]['selecao_b'] = teamB
 
 	if ("grupoB" in dados):
 
@@ -63,7 +63,7 @@ def simulate1(dados):
 		teamB['bandeira'] = fullTeamB['data']['bandeira']
 
 		partidas[0]['selecao_b'] = teamA
-		partidas[3]['selecao_a'] = teamB
+		partidas[2]['selecao_a'] = teamB
 
 	if ("grupoC" in dados):
 
