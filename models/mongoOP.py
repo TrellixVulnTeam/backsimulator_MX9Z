@@ -38,6 +38,43 @@ class OpMongoDB():
 
         return dados
 
+    def getSimulation(self, id):
+
+        dados = {}
+        response = {}
+
+        try:
+            res = self.collection.find_one({"id": id})
+            response = {
+                "user": id,
+                "simulacao": res['simulacao']
+            }
+        except:
+            response = {}
+
+        return response
+
+    def saveSimulation(self,id,dados):
+
+        response = {"simulacao":dados}
+
+        try:
+
+            res = self.collection.update({'id': id }, {"$set": response}, upsert=True)
+
+            response = {
+                "Error": False,
+                "Message": "Arquivo atualizado com sucesso",
+            }
+
+        except:
+            response = {
+                "Error": True,
+                "Message": "Error ao processar serviço",
+            }
+
+        return response
+
     def save(self, dados):
 
         # Criando variável que armazena a resposta

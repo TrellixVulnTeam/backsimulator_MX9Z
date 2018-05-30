@@ -210,7 +210,22 @@ def getIdPartida(idpartida):
         res = match.listMatchbyId(idpartida,request.json)
         return dumps(res)
 
+"""
+----------------------------------------------------
+                    SAVE
+----------------------------------------------------
+"""
 
+@application.route('/user/<idUser>/simulacao',  methods=['POST','GET'])
+def saveSimulation(idUser):
+
+    if (request.method == "POST"):
+        res = user.saveSimulation(idUser,request.json)
+        return dumps(res)
+
+    if (request.method == "GET"):
+        res = user.getSimulation(idUser)
+        return dumps(res)
 
 ############################################
 ################## grupos ##################

@@ -9,7 +9,7 @@ dbuser = mongoOP.OpMongoDB('worldcup2018', 'usuario')
 
 # dbuser.collection.create_index([("email", pymongo.ASCENDING)], unique=True)
 
-def createUser(dados):
+def createUser(id,dados):
 
     if dbuser.findUser(dados['id'])==True:
         print ("tem")
@@ -17,6 +17,12 @@ def createUser(dados):
         return dbuser.save(dados)
         print ("nao tem")
 
+
+def saveSimulation(id,dados):
+    return dbuser.saveSimulation(id,dados)
+
+def getSimulation(id):
+    return dbuser.getSimulation(id)
 
 def uploadUser(id, dados):
     return dbuser.upload(id, dados)
