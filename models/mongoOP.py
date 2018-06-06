@@ -47,6 +47,7 @@ class OpMongoDB():
             res = self.collection.find_one({"id": id})
             response = {
                 "user": id,
+                "name": res['name'],
                 "simulacao": res['simulacao']
             }
         except:
